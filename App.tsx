@@ -6,6 +6,7 @@ import { HowItWorks } from './components/HowItWorks';
 import { UseCases } from './components/UseCases';
 import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Theme } from './types';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FeaturesPage from './pages/Features';
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={

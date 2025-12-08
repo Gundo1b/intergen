@@ -18,6 +18,24 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      css: {
+        postcss: false
+      },
+      build: {
+        rollupOptions: {
+          onwarn(warning, warn) {
+            // Skip CSS import warnings
+            if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return;
+            warn(warning);
+          }
+        }
+      },
+      optimizeDeps: {
+        exclude: ['@vite/client', '@vite/env']
+      },
+      esbuild: {
+        target: 'esnext'
       }
     };
 });

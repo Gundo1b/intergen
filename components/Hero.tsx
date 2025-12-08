@@ -6,6 +6,7 @@ import { TextGenerateEffect } from './TextGenerateEffect';
 import { TypewriterEffectSmooth } from './TypewriterEffect';
 import { SiriOrb } from './SiriOrb';
 import { ParticleBackground } from './ParticleBackground';
+import { PhoneMockup } from './PhoneMockup';
 
 const models = ['OpenAI', 'Anthropic', 'Google', 'Meta', 'Mistral'];
 
@@ -58,7 +59,7 @@ export const Hero: React.FC = () => {
               <TypewriterEffectSmooth
                 words={typewriterWords}
                 className="my-1 justify-center lg:justify-start"
-                textClassName="text-2xl sm:text-4xl lg:text-6xl font-bold font-display leading-[1.1] lg:leading-[1.2] tracking-tight break-words"
+                textClassName="text-2xl sm:text-4xl lg:text-5xl font-bold font-display leading-[1.1] lg:leading-[1.2] tracking-tight break-words"
                 cursorClassName="h-6 sm:h-10 lg:h-14"
               />
             </div>
@@ -105,8 +106,8 @@ export const Hero: React.FC = () => {
         >
           {/* Laptop Mockup */}
           <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            animate={{ y: [0, -8, 0], rotateX: [0, 2, 0], rotateY: [0, -2, 0] }}
+            transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
             className="absolute top-0 left-0 right-0 sm:right-12 h-[280px] sm:h-[380px] lg:h-[450px] bg-[#1e1e1e] rounded-[1.5rem] shadow-2xl overflow-hidden z-10 border-[6px] border-[#2a2a2a] ring-1 ring-white/10"
             style={{ transform: 'perspective(1000px) rotateY(-5deg) rotateX(2deg)' }}
           >
@@ -217,72 +218,47 @@ export const Hero: React.FC = () => {
           </motion.div>
 
           {/* Mobile Mockup */}
-          <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-[-10px] right-2 sm:right-6 lg:right-16 w-[200px] sm:w-[240px] h-[400px] sm:h-[480px] bg-black rounded-[3rem] border-[8px] border-[#383838] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.6)] overflow-hidden z-20 ring-1 ring-white/20"
-            style={{ transform: 'perspective(1000px) rotateY(-10deg) rotateX(5deg)' }}
-          >
-            {/* Screen Glare */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none z-30 rounded-[2.5rem]"></div>
-
-            {/* Dynamic Island */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full z-30 flex items-center justify-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1e1e1e]"></div>
-            </div>
-
-            {/* Mobile Content - Chat App */}
-            <div className="h-full w-full bg-[#000000] flex flex-col relative">
-              {/* Status Bar */}
-              <div className="h-12 w-full flex justify-between items-center px-6 pt-2 text-white text-[10px] font-medium z-20">
-                <span>9:41</span>
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full border border-white"></div>
-                  <div className="w-3 h-3 rounded-full border border-white"></div>
+          <PhoneMockup animationDelay={1}>
+            {/* Chat Area */}
+            <div className="flex-1 p-4 space-y-4 overflow-hidden flex flex-col justify-end pb-20">
+              {/* User Message */}
+              <div className="self-end max-w-[85%]">
+                <div className="bg-[#2C2C2E] text-white px-4 py-3 rounded-2xl rounded-tr-sm text-xs leading-relaxed shadow-sm">
+                  Generate a futuristic cyberpunk city with neon lights.
                 </div>
+                <span className="text-[10px] text-gray-500 mt-1 block text-right">Just now</span>
               </div>
 
-              {/* Chat Area */}
-              <div className="flex-1 p-4 space-y-4 overflow-hidden flex flex-col justify-end pb-20">
-                {/* User Message */}
-                <div className="self-end max-w-[85%]">
-                  <div className="bg-[#2C2C2E] text-white px-4 py-3 rounded-2xl rounded-tr-sm text-xs leading-relaxed shadow-sm">
-                    Generate a futuristic cyberpunk city with neon lights.
+              {/* Bot Response (Thinking) */}
+              <div className="self-start max-w-[90%]">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end flex items-center justify-center">
+                    <Sparkles size={10} className="text-white" />
                   </div>
-                  <span className="text-[10px] text-gray-500 mt-1 block text-right">Just now</span>
+                  <span className="text-[10px] text-gray-400">Integen AI</span>
                 </div>
-
-                {/* Bot Response (Thinking) */}
-                <div className="self-start max-w-[90%]">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end flex items-center justify-center">
-                      <Sparkles size={10} className="text-white" />
-                    </div>
-                    <span className="text-[10px] text-gray-400">Integen AI</span>
+                <div className="bg-[#2C2C2E] px-4 py-3 rounded-2xl rounded-tl-sm shadow-sm w-fit border border-white/5">
+                  <div className="flex gap-1">
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
                   </div>
-                  <div className="bg-[#2C2C2E] px-4 py-3 rounded-2xl rounded-tl-sm shadow-sm w-fit border border-white/5">
-                    <div className="flex gap-1">
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Input Area */}
-              <div className="absolute bottom-4 left-4 right-4 h-12 bg-[#1C1C1E]/90 backdrop-blur-md rounded-full border border-white/10 flex items-center px-4 gap-2 shadow-lg">
-                <div className="w-6 h-6 rounded-full bg-[#2C2C2E] flex items-center justify-center text-gray-400">
-                  <ImageIcon size={12} />
-                </div>
-                <div className="h-4 w-[1px] bg-gray-700"></div>
-                <div className="flex-1 text-[11px] text-gray-500">Type a message...</div>
-                <div className="w-7 h-7 rounded-full bg-brand-end flex items-center justify-center text-white">
-                  <Play size={10} fill="currentColor" />
                 </div>
               </div>
             </div>
-          </motion.div>
+
+            {/* Input Area */}
+            <div className="absolute bottom-4 left-4 right-4 h-12 bg-[#1C1C1E]/90 backdrop-blur-md rounded-full border border-white/10 flex items-center px-4 gap-2 shadow-lg">
+              <div className="w-6 h-6 rounded-full bg-[#2C2C2E] flex items-center justify-center text-gray-400">
+                <ImageIcon size={12} />
+              </div>
+              <div className="h-4 w-[1px] bg-gray-700"></div>
+              <div className="flex-1 text-[11px] text-gray-500">Type a message...</div>
+              <div className="w-7 h-7 rounded-full bg-brand-end flex items-center justify-center text-white">
+                <Play size={10} fill="currentColor" />
+              </div>
+            </div>
+          </PhoneMockup>
         </motion.div>
       </div>
     </section>

@@ -14,53 +14,55 @@ import HowItWorksPage from './pages/HowItWorks';
 import PricingPage from './pages/Pricing';
 import ChangelogPage from './pages/Changelog';
 import DemoPage from './pages/Demo';
+import UseCasesPage from './pages/UseCases';
 
 function App() {
   const [theme, setTheme] = useState<Theme>('light');
-
-  // Initialize theme based on system preference or default
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-  }, []);
-
-  // Update HTML class for Tailwind Dark Mode
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
-
-  return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Hero />
-            <Features />
-            {/* <HowItWorks /> */}
-            <UseCases />
-            <Pricing />
-          </>
-        } />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/how-it-works" element={<HowItWorksPage />} />
-        <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/changelog" element={<ChangelogPage />} />
-        <Route path="/demo" element={<DemoPage />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  );
-}
+  
+    // Initialize theme based on system preference or default
+    useEffect(() => {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      }
+    }, []);
+  
+    // Update HTML class for Tailwind Dark Mode
+    useEffect(() => {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }, [theme]);
+  
+    const toggleTheme = () => {
+      setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    };
+  
+    return (
+      <BrowserRouter>
+        <ScrollToTop />
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Features />
+              {/* <HowItWorks /> */}
+              <UseCases />
+              <Pricing />
+            </>
+          } />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/changelog" element={<ChangelogPage />} />
+          <Route path="/demo" element={<DemoPage />} />
+          <Route path="/use-cases" element={<UseCasesPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    );
+  }
 
 export default App;

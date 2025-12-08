@@ -53,7 +53,7 @@ export const TypewriterEffectSmooth = ({
       >
         <div
           className={cn(
-            "text-4xl sm:text-5xl lg:text-7xl font-bold font-display leading-[1.1] lg:leading-[1.2] tracking-tight whitespace-nowrap lg:whitespace-normal break-words",
+            "text-4xl sm:text-5xl lg:text-7xl font-bold font-display leading-[1.1] lg:leading-[1.2] tracking-tight whitespace-nowrap break-words",
             textClassName
           )}
         >

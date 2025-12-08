@@ -1,11 +1,34 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Icons } from "./icons";
 import { Button } from "./button";
 import { Logo } from "../Logo";
 import { Link } from "react-router-dom";
+import { Globe, Check, ChevronDown } from "lucide-react";
 
-function Footer() {
+const languages = [
+  'English', 'Español', 'Français', 'Deutsch', 'Português',
+  'Italiano', 'العربية', 'हिंदी', '日本語', '한국어'
+];
+
+function LargeNameFooter() {
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState('English');
+  const langMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+        setLangMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <footer className="py-12 px-4 md:px-6 bg-white dark:bg-bg-dark border-t border-slate-200 dark:border-slate-800">
       <div className="container mx-auto max-w-7xl">
@@ -33,7 +56,7 @@ function Footer() {
               © {new Date().getFullYear()} Integen AI Inc. All rights reserved.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
             <div>
               <h3 className="font-semibold mb-4 text-slate-900 dark:text-white">Product</h3>
               <ul className="space-y-2 text-sm md:text-base">
@@ -100,6 +123,40 @@ function Footer() {
                 </li>
               </ul>
             </div>
+            <div className="relative" ref={langMenuRef}>
+              <h3 className="font-semibold mb-4 text-slate-900 dark:text-white">Language</h3>
+              <button
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="flex items-center justify-between w-full text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <Globe size={20} />
+                  {selectedLang}
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${langMenuOpen ? 'transform rotate-180' : ''}`} />
+              </button>
+              {langMenuOpen && (
+                <div className="absolute bottom-full left-0 mb-2 w-48 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl z-50 animate-in fade-in zoom-in-95 duration-200">
+                  <div className="max-h-64 overflow-y-auto custom-scrollbar">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          setSelectedLang(lang);
+                          setLangMenuOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${
+                          selectedLang === lang ? 'text-brand-end font-medium' : 'text-slate-700 dark:text-slate-300'
+                        }`}
+                      >
+                        {lang}
+                        {selectedLang === lang && <Check size={14} />}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div className="w-full flex mt-16 items-center justify-center overflow-hidden">
@@ -112,4 +169,4 @@ function Footer() {
   );
 }
 
-export { Footer };
+export { LargeNameFooter };

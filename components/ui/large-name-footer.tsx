@@ -3,6 +3,7 @@ import React from "react";
 import { Icons } from "./icons";
 import { Button } from "./button";
 import { Logo } from "../Logo";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -37,24 +38,16 @@ function Footer() {
               <h3 className="font-semibold mb-4 text-slate-900 dark:text-white">Product</h3>
               <ul className="space-y-2 text-sm md:text-base">
                 <li>
-                  <a href="#features" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Features
-                  </a>
+                  <Link to="/features" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Features</Link>
                 </li>
                 <li>
-                  <a href="#how-it-works" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    How it works
-                  </a>
+                  <Link to="/how-it-works" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">How it works</Link>
                 </li>
                 <li>
-                  <a href="#pricing" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Pricing
-                  </a>
+                  <Link to="/pricing" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Pricing</Link>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Changelog
-                  </a>
+                  <Link to="/changelog" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Changelog</Link>
                 </li>
               </ul>
             </div>
@@ -82,23 +75,17 @@ function Footer() {
               <h3 className="font-semibold mb-4 text-slate-900 dark:text-white">Company</h3>
               <ul className="space-y-2 text-sm md:text-base">
                 <li>
-                  <a href="#" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    About
-                  </a>
+                  <Link to="/about" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">About</Link>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Blog
-                  </a>
+                  <Link to="/blog" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Blog</Link>
                 </li>
                 <li>
-                  <a href="#" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Careers
-                  </a>
+                  <Link to="/careers" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Careers</Link>
                 </li>
               </ul>
             </div>
-             <div>
+            <div>
               <h3 className="font-semibold mb-4 text-slate-900 dark:text-white">Legal</h3>
               <ul className="space-y-2 text-sm md:text-base">
                 <li>

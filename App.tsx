@@ -7,6 +7,11 @@ import { UseCases } from './components/UseCases';
 import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
 import { Theme } from './types';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import FeaturesPage from './pages/Features';
+import HowItWorksPage from './pages/HowItWorks';
+import PricingPage from './pages/Pricing';
+import ChangelogPage from './pages/Changelog';
 
 function App() {
   const [theme, setTheme] = useState<Theme>('light');
@@ -32,17 +37,25 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen font-sans selection:bg-brand-start selection:text-white ${theme}`}>
+    <BrowserRouter>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <UseCases />
-        <Pricing />
-      </main>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <Features />
+            <HowItWorks />
+            <UseCases />
+            <Pricing />
+          </>
+        } />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/changelog" element={<ChangelogPage />} />
+      </Routes>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

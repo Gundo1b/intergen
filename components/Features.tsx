@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Cpu, Zap, Users, ArrowRight } from 'lucide-react';
+import { Layers, Cpu, Zap, Users, ArrowRight, WandSparkles, CircleDollarSign, ShieldCheck } from 'lucide-react';
 import { Feature } from '../types';
 
 const featureList: Feature[] = [
@@ -31,10 +31,16 @@ export const Features: React.FC = () => {
     <section id="features" className="py-16 md:py-24 bg-white dark:bg-bg-dark relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 dark:text-white mb-4">
+          <div className="mb-8">
+  <h3 className="text-3xl md:text-4xl font-bold font-display bg-gradient-to-r from-brand-start to-brand-end text-transparent bg-clip-text mb-4">
+    What Our AI Can Do
+  </h3>
+  <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+    Our AI is a versatile tool that can assist you with a wide range of tasks. You can use it to generate code, create stunning images, produce high-quality videos, and get informative answers to any question.
+  </p>
+</div>          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 dark:text-white mb-4">
             Why settle for one model when you can have them all?
-          </h2>
-          <p className="text-base md:text-lg text-slate-600 dark:text-slate-400">
+          </h2>          <p className="text-base md:text-lg text-slate-600 dark:text-slate-400">
             Integen abstracts the complexity of AI model management so you can focus purely on creation.
           </p>
         </div>
@@ -63,6 +69,41 @@ export const Features: React.FC = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16">
+          <h3 className="text-3xl md:text-4xl font-bold font-display text-center text-slate-900 dark:text-white mb-8">
+            The Power of Choice: Why Multiple Models Matter
+          </h3>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="flex justify-center mb-4">
+                <WandSparkles className="w-10 h-10 text-brand-start" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Best Tool for the Job</h4>
+              <p className="text-slate-600 dark:text-slate-400">
+                Different models excel at different tasks. Get the best results for writing, coding, or image generation by using a specialized model for each.
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-center mb-4">
+                <CircleDollarSign className="w-10 h-10 text-brand-start" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Cost-Effective</h4>
+              <p className="text-slate-600 dark:text-slate-400">
+                Optimize your costs by routing simpler tasks to faster, cheaper models, and reserving the most powerful models for complex requests.
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-center mb-4">
+                <ShieldCheck className="w-10 h-10 text-brand-start" />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Future-Proof</h4>
+              <p className="text-slate-600 dark:text-slate-400">
+                Stay on the cutting edge. As new and improved models are released, we integrate them into our platform, giving you instant access to the latest and greatest.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

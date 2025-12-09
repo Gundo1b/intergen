@@ -4,6 +4,7 @@ import { Icons } from "./icons";
 import { Button } from "./button";
 import { Logo } from "../Logo";
 import { Link } from "react-router-dom";
+import { ColorChangingText } from "../ColorChangingText";
 import { Globe, Check, ChevronDown } from "lucide-react";
 
 const languages = [
@@ -161,7 +162,7 @@ function LargeNameFooter() {
         </div>
         <div className="w-full flex mt-16 items-center justify-center overflow-hidden">
           <h1 className="text-center text-[12vw] md:text-[14vw] font-bold bg-clip-text text-transparent bg-gradient-to-b from-slate-200 to-slate-400 dark:from-slate-800 dark:to-bg-dark select-none leading-none tracking-tighter opacity-50 dark:opacity-100">
-            INTEGEN
+            INTEGEN<ColorChangingText text="AI" />
           </h1>
         </div>
       </div>

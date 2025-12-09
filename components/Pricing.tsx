@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, Star, Zap, Crown } from 'lucide-react';
 import { PricingTier } from '../types';
 
 const plans: PricingTier[] = [
@@ -58,6 +58,15 @@ const logos = [
   { name: 'Hooli', className: 'font-sans font-bold italic' },
 ];
 
+const getPlanIcon = (name: string) => {
+  switch (name) {
+    case 'Pro': return <Zap className="w-6 h-6" />;
+    case 'Ultra': return <Star className="w-6 h-6" />;
+    case 'Enterprise': return <Crown className="w-6 h-6" />;
+    default: return null;
+  }
+};
+
 export const Pricing: React.FC = () => {
   return (
     <section id="pricing" className="py-16 md:py-24 bg-bg-light dark:bg-bg-dark relative overflow-hidden">
@@ -72,53 +81,97 @@ export const Pricing: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {plans.map((plan) => (
-            <div 
-              key={plan.name}
-              className={`relative rounded-3xl p-6 md:p-8 transition-all duration-300 ${
-                plan.highlight 
-                  ? 'bg-white dark:bg-slate-800 border-2 border-brand-end shadow-2xl shadow-brand-end/20 z-10 scale-100 md:scale-105 order-first md:order-none' 
-                  : 'bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700'
-              }`}
-            >
-              {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg whitespace-nowrap">
-                  Most Popular
-                </div>
-              )}
-              
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
-              <div className="flex items-baseline mb-4">
-                <span className="text-4xl font-bold text-slate-900 dark:text-white">{plan.price}</span>
-                {plan.price !== 'Custom' && <span className="text-slate-500 ml-1">/month</span>}
-              </div>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-8 h-auto md:h-10">
-                {plan.description}
-              </p>
-              
-              <button 
-                className={`w-full py-3 px-4 rounded-xl font-semibold mb-8 transition-colors ${
-                  plan.highlight
-                    ? 'bg-brand-end hover:bg-brand-accent text-white shadow-lg shadow-brand-end/25'
-                    : 'bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-300 dark:hover:bg-slate-600'
-                }`}
+        {/* Stepped Pricing Layout */}
+        <div className="relative">
+          {/* Background Connection Line */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-slate-200 via-brand-start via-brand-end to-slate-200 dark:from-slate-700 dark:via-brand-start dark:via-brand-end dark:to-slate-700 transform -translate-y-1/2 z-0"></div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-4 relative z-10">
+            {plans.map((plan, index) => (
+              <div
+                key={plan.name}
+                className={`
+                  relative bg-white dark:bg-slate-800 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl hover:scale-105
+                  ${plan.highlight 
+                    ? 'border-brand-end lg:border-brand-start lg:border-brand-end shadow-2xl scale-105 lg:scale-110 z-20' 
+                    : 'border-slate-200 dark:border-slate-700 hover:border-brand-start/50'
+                  }
+                  ${index === 0 ? 'lg:self-start mt-8' : index === 1 ? 'lg:self-center' : 'lg:self-end'}
+                `}
               >
-                {plan.cta}
-              </button>
+                {/* Popular Badge */}
+                {plan.highlight && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-brand-start to-brand-end text-white px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider shadow-lg">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
 
-              <ul className="space-y-4">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start text-sm text-slate-600 dark:text-slate-300">
-                    <Check className="w-5 h-5 text-brand-end mr-3 shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                <div className="p-8">
+                  {/* Plan Icon */}
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 ${
+                    plan.highlight 
+                      ? 'bg-gradient-to-r from-brand-start to-brand-end text-white' 
+                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                  }`}>
+                    {getPlanIcon(plan.name)}
+                  </div>
+
+                  {/* Plan Name */}
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                    {plan.name}
+                  </h3>
+
+                  {/* Price */}
+                  <div className="mb-4">
+                    <span className={`text-4xl font-bold ${
+                      plan.highlight ? 'text-brand-end' : 'text-slate-900 dark:text-white'
+                    }`}>
+                      {plan.price}
+                    </span>
+                    {plan.price !== 'Custom' && (
+                      <span className="text-slate-500 dark:text-slate-400 ml-1">/month</span>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                    {plan.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <Check className={`w-5 h-5 mr-3 shrink-0 mt-0.5 ${
+                          plan.highlight ? 'text-brand-end' : 'text-green-500'
+                        }`} />
+                        <span className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <button
+                    className={`
+                      w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105
+                      ${plan.highlight
+                        ? 'bg-gradient-to-r from-brand-start to-brand-end hover:from-brand-end hover:to-brand-accent text-white shadow-lg hover:shadow-xl'
+                        : 'bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-600 hover:border-brand-start'
+                      }
+                    `}
+                  >
+                    {plan.cta}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-        
+
         {/* Social Proof Marquee */}
         <div className="mt-20 md:mt-24 pt-12 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden">
           <p className="text-center text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-10">

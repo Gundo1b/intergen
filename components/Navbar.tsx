@@ -4,6 +4,8 @@ import { Theme } from '../types';
 import { Logo } from './Logo';
 import { Link } from 'react-router-dom';
 
+import { ColorChangingText } from './ColorChangingText';
+
 interface NavbarProps {
   theme: Theme;
   toggleTheme: () => void;
@@ -40,8 +42,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative">
         {/* Logo */}
-        <Link to="/" className="cursor-pointer">
+        <Link to="/" className="cursor-pointer flex items-center">
           <Logo className="scale-90 md:scale-100 origin-left" />
+          <ColorChangingText text="Integen" className="font-display text-2xl font-light tracking-[0.15em] uppercase ml-2" />
         </Link>
 
         {/* Desktop Nav */}

@@ -160,145 +160,118 @@ export default function Pricing() {
             </p>
           </motion.div>
 
-          {/* Pricing Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6">
-            {/* Pro Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-start/10 to-brand-end/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl hover:shadow-brand-start/10 transition-all duration-500 hover:-translate-y-2">
+          {/* Pricing Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-3xl overflow-hidden"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-4">
+              {/* Plan Details */}
+              <div className="lg:col-span-1 p-8 border-b lg:border-b-0 lg:border-r border-slate-200/50 dark:border-slate-700/50">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">The Plans</h3>
+                <p className="text-slate-600 dark:text-slate-400">Choose the plan that's right for you.</p>
+              </div>
+              
+              {/* Pro Plan */}
+              <div className="p-8 border-b lg:border-b-0 lg:border-r border-slate-200/50 dark:border-slate-700/50">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Pro</h3>
                   <div className="flex items-baseline justify-center gap-1 mb-4">
-                    <span className="text-4xl font-bold text-slate-900 dark:text-white">$25</span>
+                    <span className="text-3xl font-semibold text-slate-900 dark:text-white">$25</span>
                     <span className="text-slate-600 dark:text-slate-400">/month</span>
                   </div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">Perfect for creators, developers, startups</p>
                 </div>
-
-                <div className="space-y-4 mb-8">
-                  {proFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end p-1 flex-shrink-0">
-                        <Check size={12} className="text-white" />
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <feature.icon size={16} className="text-brand-start" />
-                        <span className="text-slate-700 dark:text-slate-300 text-sm">{feature.text}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                <button className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold hover:shadow-lg hover:shadow-brand-start/25 transition-all duration-300">
                   Start Pro
-                  <ArrowRight size={18} />
                 </button>
               </div>
-            </motion.div>
 
-            {/* Ultra Plan - Recommended */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative group lg:scale-105"
-            >
-              {/* Aurora glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-brand-start/20 to-brand-end/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              
-              {/* Most Popular Badge */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-sm font-semibold">
-                  <Crown size={16} />
-                  <span>Most Popular</span>
+              {/* Ultra Plan */}
+              <div className="p-8 border-b lg:border-b-0 lg:border-r border-slate-200/50 dark:border-slate-700/50 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-semibold">
+                    <Crown size={14} />
+                    <span>Most Popular</span>
+                  </div>
                 </div>
-              </div>
-
-              <div className="relative bg-gradient-to-br from-white/80 dark:from-slate-800/80 to-brand-start/5 dark:to-brand-start/10 backdrop-blur-sm border-2 border-brand-start/30 rounded-3xl p-8 hover:shadow-2xl hover:shadow-brand-start/20 transition-all duration-500 hover:-translate-y-2">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Ultra</h3>
                   <div className="flex items-baseline justify-center gap-1 mb-4">
-                    <span className="text-4xl font-bold text-slate-900 dark:text-white">$60</span>
+                    <span className="text-3xl font-semibold text-slate-900 dark:text-white">$60</span>
                     <span className="text-slate-600 dark:text-slate-400">/month</span>
                   </div>
                   <p className="text-sm text-slate-600 dark:text-slate-400">Ideal for teams, studios, professionals</p>
                 </div>
-
-                <div className="space-y-4 mb-8">
-                  {ultraFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end p-1 flex-shrink-0">
-                        <Check size={12} className="text-white" />
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <feature.icon size={16} className="text-brand-start" />
-                        <span className="text-slate-700 dark:text-slate-300 text-sm">{feature.text}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                <button className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold hover:shadow-lg hover:shadow-brand-start/25 transition-all duration-300">
                   Start Ultra
-                  <Sparkles size={18} />
                 </button>
               </div>
-            </motion.div>
 
-            {/* Enterprise Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 to-slate-800/50 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <div className="relative bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-sm border border-slate-600/50 rounded-3xl p-8 hover:shadow-2xl hover:shadow-slate-900/20 transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-start/5 to-brand-end/5 rounded-3xl"></div>
-                
-                <div className="relative text-center mb-8">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-xs font-semibold uppercase tracking-wider mb-4">
-                    <Star size={14} />
-                    <span>Premium</span>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-2">Enterprise</h3>
+              {/* Enterprise Plan */}
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Enterprise</h3>
                   <div className="flex items-baseline justify-center gap-1 mb-4">
-                    <span className="text-4xl font-bold text-white">Custom</span>
-                    <span className="text-slate-400">Pricing</span>
+                    <span className="text-3xl font-semibold text-white">Custom</span>
                   </div>
                   <p className="text-sm text-slate-300">For organizations, companies, education</p>
                 </div>
-
-                <div className="space-y-4 mb-8">
-                  {enterpriseFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end p-1 flex-shrink-0">
-                        <Check size={12} className="text-white" />
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <feature.icon size={16} className="text-brand-start" />
-                        <span className="text-slate-300 text-sm">{feature.text}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button className="w-full py-4 px-6 rounded-2xl border-2 border-brand-start/50 text-brand-start font-semibold text-lg hover:bg-brand-start/10 hover:border-brand-start transition-all duration-300 flex items-center justify-center gap-2">
+                <button className="w-full py-3 px-6 rounded-lg border-2 border-brand-start/50 text-brand-start font-semibold hover:bg-brand-start/10 transition-all duration-300">
                   Contact Sales
-                  <ArrowRight size={18} />
                 </button>
               </div>
-            </motion.div>
-          </div>
+            </div>
+
+            {/* Features List */}
+            <div className="p-8">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Features</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div>
+                  <h4 className="font-semibold text-lg text-slate-900 dark:text-white mb-4">Pro Features</h4>
+                  <div className="space-y-3">
+                    {proFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end p-1 flex-shrink-0">
+                          <Check size={12} className="text-white" />
+                        </div>
+                        <span className="text-slate-700 dark:text-slate-300 text-sm">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg text-slate-900 dark:text-white mb-4">Ultra Features</h4>
+                  <div className="space-y-3">
+                    {ultraFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end p-1 flex-shrink-0">
+                          <Check size={12} className="text-white" />
+                        </div>
+                        <span className="text-slate-700 dark:text-slate-300 text-sm">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg text-slate-900 dark:text-white mb-4">Enterprise Features</h4>
+                  <div className="space-y-3">
+                    {enterpriseFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-brand-start to-brand-end p-1 flex-shrink-0">
+                          <Check size={12} className="text-white" />
+                        </div>
+                        <span className="text-slate-700 dark:text-slate-300 text-sm">{feature.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Bottom CTA */}
           <motion.div

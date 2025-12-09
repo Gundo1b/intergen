@@ -1,3 +1,7 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
 /* Custom CSS for Integen AI */
 
 /* Grid pattern for backgrounds */
@@ -41,6 +45,19 @@
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+@keyframes rotate-fast {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-fast {
+  animation: rotate-fast 1s linear infinite; /* 1 second duration, linear, infinite */
 }
 
 /* Typing indicator animation */

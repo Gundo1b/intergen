@@ -236,6 +236,97 @@ export function PricingSection11() {
             You also have 30 days to request a refund.
           </p>
         </motion.div>
+        
+        {/* Why You Need This Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-24 text-center"
+        >
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl lg:text-4xl font-bold font-display text-slate-900 dark:text-white mb-8">
+              Why You Need This <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">AI Platform</span>
+            </h3>
+            
+            <p className="text-lg text-slate-600 dark:text-slate-300 mb-12 leading-relaxed">
+              AI is not just for chat anymore. Stop limiting yourself to text conversations when you can unlock the full potential of artificial intelligence.
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {[
+                {
+                  title: "Beyond Conversations",
+                  description: "Generate stunning visuals, create videos, write and debug code, analyze data, and solve complex problems - all from one platform.",
+                  icon: "🚀"
+                },
+                {
+                  title: "Cost Efficiency",
+                  description: "Stop paying for multiple AI subscriptions. Get access to the best models for each task at a fraction of the cost.",
+                  icon: "💰"
+                },
+                {
+                  title: "Smart Routing",
+                  description: "Our AI automatically chooses the best model for your specific needs, ensuring optimal results every time.",
+                  icon: "🧠"
+                },
+                {
+                  title: "Creative Freedom",
+                  description: "From image generation to video creation, from code writing to content creation - express your ideas without limits.",
+                  icon: "🎨"
+                },
+                {
+                  title: "Professional Tools",
+                  description: "Access enterprise-grade AI capabilities with team collaboration, project management, and advanced analytics.",
+                  icon: "⚡"
+                },
+                {
+                  title: "Future-Ready",
+                  description: "Stay ahead with automatic integration of new AI models and capabilities as they're released to the market.",
+                  icon: "🔮"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  className="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm"
+                >
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{item.title}</h4>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="bg-gradient-to-r from-brand-start/10 to-brand-end/10 rounded-3xl p-8 border border-brand-start/20"
+            >
+              <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                Don't Just Chat - <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">Create & Build</span>
+              </h4>
+              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                While others are stuck having basic conversations, you'll be generating revenue, solving complex problems, and bringing your most ambitious ideas to life. 
+                This isn't just another AI chat tool - it's your complete creative and technical partner.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">✨ Visual Creation</span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">🎬 Video Production</span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">💻 Code Development</span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">📊 Data Analysis</span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">🧮 Problem Solving</span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">🎯 Strategic Planning</span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

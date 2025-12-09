@@ -99,7 +99,7 @@ export default function Demo() {
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
-                    Message Placement
+                    Message Placement this we add stylin
                   </label>
                   <div className="grid grid-cols-2 gap-3">
                     {placements.map((placement) => (

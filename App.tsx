@@ -4,7 +4,7 @@ import { Hero } from './components/Hero';
 import { Features } from './components/Features';
 import { HowItWorks } from './components/HowItWorks';
 import { UseCases } from './components/UseCases';
-import { Pricing } from './components/Pricing';
+import PricingSection11 from './components/Pricing';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Theme } from './types';
@@ -50,7 +50,7 @@ function App() {
               <Features />
               {/* <HowItWorks /> */}
               <UseCases />
-              <Pricing />
+              <PricingSection11 />
             </>
           } />
           <Route path="/features" element={<FeaturesPage />} />

@@ -116,12 +116,12 @@ export default function Changelog() {
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         
         {/* Aurora Effects */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-brand-start/20 dark:from-brand-start/30 to-brand-end/20 dark:to-brand-end/30 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/10 dark:from-purple-500/20 to-pink-500/10 dark:to-pink-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-gradient-to-tr from-cyan-400/5 dark:from-cyan-400/10 to-blue-600/5 dark:to-blue-600/10 rounded-full blur-[200px] animate-pulse delay-500"></div>
+        <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-brand-start/20 dark:from-brand-start/30 to-brand-end/20 dark:to-brand-end/30 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-purple-500/10 dark:from-purple-500/20 to-pink-500/10 dark:to-pink-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] sm:w-[50rem] lg:w-[60rem] h-[40rem] sm:h-[50rem] lg:h-[60rem] bg-gradient-to-tr from-cyan-400/5 dark:from-cyan-400/10 to-blue-600/5 dark:to-blue-600/10 rounded-full blur-[200px] animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative z-10 pt-32 pb-20">
+      <div className="relative z-10 pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -129,18 +129,18 @@ export default function Changelog() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-20"
+            className="text-center mb-16 sm:mb-20"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-sm font-semibold uppercase tracking-wider mb-8 backdrop-blur-sm">
-              <Sparkles size={16} />
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-xs sm:text-sm font-semibold uppercase tracking-wider mb-6 sm:mb-8 backdrop-blur-sm">
+              <Sparkles size={14} className="sm:w-4 sm:h-4" />
               <span>Release History</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white mb-6">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display text-slate-900 dark:text-white mb-4 sm:mb-6">
               Changelog
             </h1>
             
-            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-4">
               See how Integen AI evolves, version by version.
             </p>
           </motion.div>
@@ -148,10 +148,10 @@ export default function Changelog() {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-start via-brand-end to-purple-500 transform md:-translate-x-0.5"></div>
+            <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-start via-brand-end to-purple-500 transform md:-translate-x-0.5"></div>
 
             {/* Version Cards */}
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12 lg:space-y-16">
               {versions.map((version, index) => (
                 <motion.div
                   key={version.version}
@@ -159,15 +159,15 @@ export default function Changelog() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${
+                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 ${
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
                   {/* Timeline Node */}
-                  <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-brand-start to-brand-end border-4 border-white dark:border-slate-900 transform md:-translate-x-1/2 z-10 flex items-center justify-center">
+                  <div className="absolute left-6 sm:left-8 md:left-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-brand-start to-brand-end border-4 border-white dark:border-slate-900 transform md:-translate-x-1/2 z-10 flex items-center justify-center">
                     {version.status === 'current' && (
                       <motion.div
-                        className="w-3 h-3 bg-white rounded-full"
+                        className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ repeat: Infinity, duration: 2 }}
                       />
@@ -175,56 +175,56 @@ export default function Changelog() {
                   </div>
 
                   {/* Version Card */}
-                  <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                    <div className={`group relative ${version.status === 'current' ? 'scale-105' : ''}`}>
+                  <div className={`w-full md:w-5/12 ml-16 sm:ml-20 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:pr-4 lg:pr-8' : 'md:ml-auto md:pl-4 lg:pl-8'}`}>
+                    <div className={`group relative ${version.status === 'current' ? 'scale-[1.02] sm:scale-105' : ''}`}>
                       {/* Glow Effect */}
                       {version.status === 'current' && (
                         <div className="absolute inset-0 bg-gradient-to-br from-brand-start/20 to-brand-end/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                       )}
                       
-                      <div className={`relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-3xl p-8 hover:shadow-2xl hover:shadow-brand-start/10 transition-all duration-500 hover:-translate-y-2 ${
+                      <div className={`relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl hover:shadow-brand-start/10 transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 ${
                         version.status === 'current' ? 'ring-2 ring-brand-start/30 border-brand-start/50' : ''
                       }`}>
                         {/* Version Badge */}
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${version.gradient} p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${version.gradient} p-2 sm:p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
                             <version.icon className="w-full h-full text-white" />
                           </div>
                           
-                          <div>
-                            <div className="flex items-center gap-3 mb-1">
-                              <span className="text-2xl font-bold text-slate-900 dark:text-white">{version.version}</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col xs:flex-row xs:items-center gap-1 xs:gap-3 mb-1">
+                              <span className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{version.version}</span>
                               {version.status === 'current' && (
-                                <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-semibold">
-                                  <Star size={12} />
+                                <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-semibold w-fit">
+                                  <Star size={10} className="sm:w-3 sm:h-3" />
                                   <span>Current</span>
                                 </div>
                               )}
                             </div>
-                            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{version.title}</h3>
-                            <p className="text-sm text-brand-start font-medium">{version.focus}</p>
+                            <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white leading-tight">{version.title}</h3>
+                            <p className="text-xs sm:text-sm text-brand-start font-medium">{version.focus}</p>
                           </div>
                         </div>
 
-                        <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                        <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 leading-relaxed">
                           {version.description}
                         </p>
 
-                        <div className="space-y-3 mb-6">
+                        <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                           {version.details.map((detail, i) => (
-                            <div key={i} className="flex items-start gap-3">
-                              <CheckCircle size={16} className="text-brand-start mt-0.5 flex-shrink-0" />
-                              <span className="text-sm text-slate-600 dark:text-slate-400">{detail}</span>
+                            <div key={i} className="flex items-start gap-2 sm:gap-3">
+                              <CheckCircle size={14} className="sm:w-4 sm:h-4 text-brand-start mt-0.5 flex-shrink-0" />
+                              <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{detail}</span>
                             </div>
                           ))}
                         </div>
 
                         {/* Highlights */}
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {version.highlights.map((highlight, i) => (
                             <span
                               key={i}
-                              className="px-3 py-1 rounded-full bg-gradient-to-r from-brand-start/10 to-brand-end/10 border border-brand-start/20 text-brand-start text-xs font-medium"
+                              className="px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-brand-start/10 to-brand-end/10 border border-brand-start/20 text-brand-start text-xs font-medium"
                             >
                               {highlight}
                             </span>
@@ -247,9 +247,9 @@ export default function Changelog() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-20 mb-16"
+            className="mt-16 sm:mt-20 mb-12 sm:mb-16"
           >
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 px-4">
               {badges.map((badge, index) => (
                 <motion.div
                   key={badge.text}
@@ -257,12 +257,12 @@ export default function Changelog() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300"
+                  className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${badge.color} p-2`}>
+                  <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br ${badge.color} p-1.5 sm:p-2`}>
                     <badge.icon className="w-full h-full text-white" />
                   </div>
-                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{badge.text}</span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{badge.text}</span>
                 </motion.div>
               ))}
             </div>
@@ -277,23 +277,23 @@ export default function Changelog() {
             className="text-center"
           >
             <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 italic">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 mb-6 sm:mb-8 italic px-4">
                 "One platform that keeps getting smarter."
               </p>
               
-              <h2 className="text-3xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white mb-6">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4 sm:mb-6 px-4">
                 Join now and{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
                   grow with every release
                 </span>
               </h2>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                  <Rocket size={20} />
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+                <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                  <Rocket size={18} className="sm:w-5 sm:h-5" />
                   Start Your Journey
                 </button>
-                <button className="px-8 py-4 rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300">
+                <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-base sm:text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300">
                   View Roadmap
                 </button>
               </div>

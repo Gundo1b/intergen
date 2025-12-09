@@ -8,7 +8,7 @@ import { SiriOrb } from './SiriOrb';
 import { ParticleBackground } from './ParticleBackground';
 import PhoneImage from '../pictures/phone.png';
 
-const models = ['OpenAI', 'Anthropic', 'Google', 'Meta', 'Mistral'];
+const models = ['GPT-4o/GPT-5', 'Claude 3.7/4', 'Gemini 2.5 Pro', 'Llama 3.3', 'DeepSeek', 'Qwen'];
 
 export const Hero: React.FC = () => {
   const [activeModel, setActiveModel] = useState('Anthropic');
@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
 
           <div className="space-y-3 sm:space-y-4 mt-8">
             <div className="flex items-center gap-3 justify-center lg:justify-start px-4 sm:px-0">
-              <span className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Powered by top LLMs</span>
+              <span className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Powered by</span>
               <div className="h-px bg-slate-200 dark:bg-slate-800 w-8 sm:w-24"></div>
             </div>
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start px-2 sm:px-0">

@@ -5,7 +5,8 @@ import {
   MinusCircle,
   Sparkles,
   Crown,
-  Check
+  Check,
+  ArrowDown
 } from 'lucide-react';
 
 interface PricingCardProps {
@@ -17,9 +18,10 @@ interface PricingCardProps {
     info: string;
   }[];
   featured?: boolean;
+  showArrow?: boolean;
 }
 
-function PricingCard({ title, desc, price, options, featured = false }: PricingCardProps) {
+function PricingCard({ title, desc, price, options, featured = false, showArrow = false }: PricingCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -38,6 +40,12 @@ function PricingCard({ title, desc, price, options, featured = false }: PricingC
             <Crown size={14} />
             <span>Most Popular</span>
           </div>
+        </div>
+      )}
+      
+      {showArrow && (
+        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
+          <div className="w-0 h-0 border-l-[16px] border-r-[16px] border-t-[16px] border-l-transparent border-r-transparent border-t-brand-start animate-bounce"></div>
         </div>
       )}
       
@@ -76,7 +84,6 @@ export function PricingSection11() {
       title: "pro",
       desc: "For creators, developers, and solopreneurs",
       price: ["$", "25", "month"],
-      featured: true,
       options: [
         {
           icon: <CheckCircle className="h-5 w-5 text-green-600" />,
@@ -104,6 +111,8 @@ export function PricingSection11() {
       title: "ultra",
       desc: "For professional teams and studios",
       price: ["$", "60", "month"],
+      featured: true,
+      showArrow: true,
       options: [
         {
           icon: <CheckCircle className="h-5 w-5 text-green-600" />,
@@ -173,7 +182,7 @@ export function PricingSection11() {
   ];
 
   return (
-    <section className="py-24 px-8 bg-bg-light dark:bg-bg-dark">
+    <section className="py-24 px-8 bg-bg-light dark:bg-bg-dark relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -202,13 +211,14 @@ export function PricingSection11() {
         
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {cards.map((card, key) => (
-            <div key={key}>
+            <div key={key} className="relative">
               <PricingCard
                 title={card.title}
                 desc={card.desc}
                 price={card.price}
                 options={card.options}
                 featured={card.featured}
+                showArrow={card.showArrow}
               />
             </div>
           ))}

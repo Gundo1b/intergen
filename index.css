@@ -43,6 +43,20 @@
   animation: marquee 30s linear infinite;
 }
 
+/* Typing indicator animation */
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: typing 1.4s ease-in-out infinite;
+}
+
 /* Glassmorphism utilities */
 .glass-panel {
   backdrop-filter: blur(12px);

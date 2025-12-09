@@ -4,7 +4,7 @@ import { Theme } from '../types';
 import { Logo } from './Logo';
 import { Link } from 'react-router-dom';
 
-import { ColorChangingText } from './ColorChangingText';
+
 
 interface NavbarProps {
   theme: Theme;
@@ -27,8 +27,10 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Product', href: '/features' },
-    { name: 'How it Works', href: '/how-it-works' },
+    { name: 'AI Chat', href: '/ai-chat' },
+    { name: 'AI Image', href: '/ai-image' },
+    { name: 'AI Video', href: '/ai-video' },
+    { name: 'Login', href: '/login' },
   ];
 
   return (
@@ -43,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
         {/* Logo */}
         <Link to="/" className="cursor-pointer flex items-center">
           <Logo className="scale-90 md:scale-100 origin-left" />
-          <ColorChangingText text="Integen" className="font-display text-2xl font-light tracking-[0.15em] uppercase ml-2" />
+
         </Link>
 
         {/* Desktop Nav */}

@@ -33,13 +33,13 @@ export const Features: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="mb-8">
   <h3 className="text-3xl md:text-4xl font-bold font-display bg-gradient-to-r from-brand-start to-brand-end text-transparent bg-clip-text mb-4">
-    What Our AI Can Do
+    Why settle for one model when you can have them all?
   </h3>
   <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-    Our AI is a versatile tool that can assist you with a wide range of tasks. You can use it to generate code, create stunning images, produce high-quality videos, and get informative answers to any question.
+   
   </p>
 </div>          <h2 className="text-3xl md:text-4xl font-bold font-display text-slate-900 dark:text-white mb-4">
-            Why settle for one model when you can have them all?
+            
           </h2>          <p className="text-base md:text-lg text-slate-600 dark:text-slate-400">
             Integen abstracts the complexity of AI model management so you can focus purely on creation.
           </p>

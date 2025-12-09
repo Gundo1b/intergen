@@ -19,7 +19,11 @@ import {
   Settings,
   Rocket,
   Target,
-  CheckCircle
+  CheckCircle,
+  Calendar,
+  GitBranch,
+  Layers,
+  Smartphone
 } from 'lucide-react';
 
 const versions = [
@@ -31,6 +35,7 @@ const versions = [
     gradient: "from-blue-400 to-cyan-400",
     icon: MessageSquare,
     description: "Launch of the core Integen AI experience.",
+    date: "2024 Q1",
     details: [
       "Unified workspace for chat intelligence, code assistance, and image generation",
       "One platform instead of multiple tools and subscriptions",
@@ -47,6 +52,7 @@ const versions = [
     gradient: "from-purple-400 to-pink-400",
     icon: Video,
     description: "Add video generation for motion design and storytelling.",
+    date: "2024 Q2",
     details: [
       "Advanced video generation for motion design and storytelling",
       "Smarter orchestration between chat, code, image, and video modes",
@@ -63,6 +69,7 @@ const versions = [
     gradient: "from-emerald-400 to-teal-400",
     icon: Users,
     description: "Real-time collaboration for teams and studios.",
+    date: "2024 Q3",
     details: [
       "Developer SDK to build on top of Integen AI",
       "Real-time collaboration for teams and studios",
@@ -79,6 +86,7 @@ const versions = [
     gradient: "from-orange-400 to-red-400",
     icon: Shield,
     description: "Private AI deployments and enterprise controls.",
+    date: "2024 Q4",
     details: [
       "Private AI deployments and enterprise controls",
       "Advanced security, governance, and integrations",
@@ -89,217 +97,221 @@ const versions = [
   }
 ];
 
-const badges = [
+const features = [
+  {
+    icon: Smartphone,
+    title: "Cross-Platform",
+    description: "Works seamlessly across web, mobile, and desktop"
+  },
+  {
+    icon: Zap,
+    title: "Lightning Fast",
+    description: "Optimized for speed and performance"
+  },
   {
     icon: Shield,
-    text: "Security-first",
-    color: "from-green-400 to-emerald-500"
-  },
-  {
-    icon: Cpu,
-    text: "Model upgrades",
-    color: "from-blue-400 to-cyan-500"
-  },
-  {
-    icon: RefreshCw,
-    text: "Continuous improvement",
-    color: "from-purple-400 to-pink-500"
+    title: "Secure by Design",
+    description: "Enterprise-grade security and privacy"
   }
 ];
 
 export default function Changelog() {
   return (
-    <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        
-        {/* Aurora Effects */}
-        <div className="absolute top-0 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-brand-start/20 dark:from-brand-start/30 to-brand-end/20 dark:to-brand-end/30 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-purple-500/10 dark:from-purple-500/20 to-pink-500/10 dark:to-pink-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] sm:w-[50rem] lg:w-[60rem] h-[40rem] sm:h-[50rem] lg:h-[60rem] bg-gradient-to-tr from-cyan-400/5 dark:from-cyan-400/10 to-blue-600/5 dark:to-blue-600/10 rounded-full blur-[200px] animate-pulse delay-500"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+      {/* Modern Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-to-br from-emerald-400/20 to-cyan-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gradient-to-br from-orange-400/20 to-pink-500/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16 sm:mb-20"
-          >
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-xs sm:text-sm font-semibold uppercase tracking-wider mb-6 sm:mb-8 backdrop-blur-sm">
-              <Sparkles size={14} className="sm:w-4 sm:h-4" />
-              <span>Release History</span>
-            </div>
-            
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display text-slate-900 dark:text-white mb-4 sm:mb-6">
-              Changelog
-            </h1>
-            
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed px-4">
-              See how Integen AI evolves, version by version.
-            </p>
-          </motion.div>
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 text-sm font-semibold mb-8 shadow-lg">
+                <GitBranch size={16} />
+                <span>Release Timeline</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display text-slate-900 dark:text-white mb-6 leading-tight">
+                Evolution of{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">
+                  Intelligence
+                </span>
+              </h1>
+              
+              <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+                Track our journey from simple chat to enterprise-grade AI platform.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-start via-brand-end to-purple-500 transform md:-translate-x-0.5"></div>
-
-            {/* Version Cards */}
-            <div className="space-y-8 sm:space-y-12 lg:space-y-16">
+        {/* Version Cards Grid */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {versions.map((version, index) => (
                 <motion.div
                   key={version.version}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative"
                 >
-                  {/* Timeline Node */}
-                  <div className="absolute left-6 sm:left-8 md:left-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-brand-start to-brand-end border-4 border-white dark:border-slate-900 transform md:-translate-x-1/2 z-10 flex items-center justify-center">
+                  {/* Card */}
+                  <div className={`relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                    version.status === 'current' 
+                      ? 'border-2 border-blue-500/50 ring-2 ring-blue-500/20 shadow-blue-500/20' 
+                      : 'border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300/70 dark:hover:border-slate-600/70'
+                  }`}>
+                    
+                    {/* Status Badge */}
                     {version.status === 'current' && (
-                      <motion.div
-                        className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                      />
-                    )}
-                  </div>
-
-                  {/* Version Card */}
-                  <div className={`w-full md:w-5/12 ml-16 sm:ml-20 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:pr-4 lg:pr-8' : 'md:ml-auto md:pl-4 lg:pl-8'}`}>
-                    <div className={`group relative ${version.status === 'current' ? 'scale-[1.02] sm:scale-105' : ''}`}>
-                      {/* Glow Effect */}
-                      {version.status === 'current' && (
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-start/20 to-brand-end/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                      )}
-                      
-                      <div className={`relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl hover:shadow-brand-start/10 transition-all duration-500 hover:-translate-y-1 sm:hover:-translate-y-2 ${
-                        version.status === 'current' ? 'ring-2 ring-brand-start/30 border-brand-start/50' : ''
-                      }`}>
-                        {/* Version Badge */}
-                        <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                          <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${version.gradient} p-2 sm:p-3 group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
-                            <version.icon className="w-full h-full text-white" />
-                          </div>
-                          
-                          <div className="flex-1 min-w-0">
-                            <div className="flex flex-col xs:flex-row xs:items-center gap-1 xs:gap-3 mb-1">
-                              <span className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{version.version}</span>
-                              {version.status === 'current' && (
-                                <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-semibold w-fit">
-                                  <Star size={10} className="sm:w-3 sm:h-3" />
-                                  <span>Current</span>
-                                </div>
-                              )}
-                            </div>
-                            <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white leading-tight">{version.title}</h3>
-                            <p className="text-xs sm:text-sm text-brand-start font-medium">{version.focus}</p>
-                          </div>
-                        </div>
-
-                        <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 leading-relaxed">
-                          {version.description}
-                        </p>
-
-                        <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                          {version.details.map((detail, i) => (
-                            <div key={i} className="flex items-start gap-2 sm:gap-3">
-                              <CheckCircle size={14} className="sm:w-4 sm:h-4 text-brand-start mt-0.5 flex-shrink-0" />
-                              <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{detail}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Highlights */}
-                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                          {version.highlights.map((highlight, i) => (
-                            <span
-                              key={i}
-                              className="px-2 sm:px-3 py-1 rounded-full bg-gradient-to-r from-brand-start/10 to-brand-end/10 border border-brand-start/20 text-brand-start text-xs font-medium"
-                            >
-                              {highlight}
-                            </span>
-                          ))}
+                      <div className="absolute -top-3 -right-3">
+                        <div className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
+                          <Star size={12} />
+                          <span>Current</span>
                         </div>
                       </div>
+                    )}
+
+                    {/* Version Header */}
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${version.gradient} p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <version.icon className="w-full h-full text-white" />
+                      </div>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                            {version.version}
+                          </h3>
+                          <span className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded-full">
+                            {version.date}
+                          </span>
+                        </div>
+                        <h4 className="text-base sm:text-lg font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                          {version.title}
+                        </h4>
+                        <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
+                          {version.focus}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                      {version.description}
+                    </p>
+
+                    {/* Details */}
+                    <div className="space-y-3 mb-6">
+                      {version.details.slice(0, 3).map((detail, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle size={16} className="text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-slate-600 dark:text-slate-400">{detail}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Highlights */}
+                    <div className="flex flex-wrap gap-2">
+                      {version.highlights.map((highlight, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 rounded-full bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-300 text-xs font-medium border border-slate-200/50 dark:border-slate-600/50"
+                        >
+                          {highlight}
+                        </span>
+                      ))}
                     </div>
                   </div>
-
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden md:block w-5/12"></div>
                 </motion.div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Badges Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-16 sm:mt-20 mb-12 sm:mb-16"
-          >
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 px-4">
-              {badges.map((badge, index) => (
+        {/* Features Grid */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-slate-900 dark:text-white mb-4">
+                Built for the{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
+                  Future
+                </span>
+              </h2>
+              <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                Every release brings us closer to the perfect AI platform
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {features.map((feature, index) => (
                 <motion.div
-                  key={badge.text}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, amount: 0.2 }}
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-lg transition-all duration-300"
+                  className="group"
                 >
-                  <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br ${badge.color} p-1.5 sm:p-2`}>
-                    <badge.icon className="w-full h-full text-white" />
+                  <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 p-3 mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="w-full h-full text-white" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300 text-sm">
+                      {feature.description}
+                    </p>
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{badge.text}</span>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
+        </section>
 
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-center"
-          >
-            <div className="max-w-4xl mx-auto">
-              <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 mb-6 sm:mb-8 italic px-4">
-                "One platform that keeps getting smarter."
+        {/* CTA Section */}
+        <section className="px-4 sm:px-6 lg:px-8 pb-24">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8 }}
+              className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 rounded-3xl p-8 sm:p-12 text-white shadow-2xl"
+            >
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
+                Ready to Experience the Future?
+              </h2>
+              <p className="text-blue-100 mb-8 text-lg">
+                Join thousands of creators, developers, and teams already building with Integen AI
               </p>
               
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4 sm:mb-6 px-4">
-                Join now and{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
-                  grow with every release
-                </span>
-              </h2>
-              
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-                <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                  <Rocket size={18} className="sm:w-5 sm:h-5" />
-                  Start Your Journey
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                  <Rocket size={20} />
+                  Start Building Today
                 </button>
-                <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-base sm:text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300">
-                  View Roadmap
+                <button className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2">
+                  <ArrowRight size={20} />
+                  View Documentation
                 </button>
               </div>
-            </div>
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
+        </section>
       </div>
     </div>
   );

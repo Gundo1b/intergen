@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  MessageSquare, 
-  Code, 
-  Image, 
-  Video, 
-  Sparkles, 
-  ArrowRight, 
-  Zap, 
-  RefreshCw, 
-  Download, 
+import {
+  MessageSquare,
+  Code,
+  Image,
+  Video,
+  Sparkles,
+  ArrowRight,
+  Zap,
+  RefreshCw,
+  Download,
   Upload,
   Wand2,
   Layers,
@@ -29,7 +29,7 @@ const modes = [
   },
   {
     icon: Code,
-    title: "Code", 
+    title: "Code",
     description: "Creation, debugging, refactoring",
     color: "from-emerald-400 to-teal-400",
     glow: "shadow-emerald-500/25"
@@ -37,7 +37,7 @@ const modes = [
   {
     icon: Image,
     title: "Image",
-    description: "Visual generation, refinement", 
+    description: "Visual generation, refinement",
     color: "from-purple-400 to-pink-400",
     glow: "shadow-purple-500/25"
   },
@@ -45,7 +45,7 @@ const modes = [
     icon: Video,
     title: "Video",
     description: "Motion design, storytelling",
-    color: "from-orange-400 to-red-400", 
+    color: "from-orange-400 to-red-400",
     glow: "shadow-orange-500/25"
   }
 ];
@@ -106,7 +106,7 @@ const refinementTools = [
   },
   {
     icon: Play,
-    title: "Continue",
+    title: "Continue ",
     description: "Extend the sequence"
   },
   {
@@ -125,7 +125,7 @@ export const HowItWorks: React.FC = () => {
       <div className="absolute inset-0 z-0">
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        
+
         {/* Aurora Effects */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-brand-start/30 to-brand-end/30 rounded-full blur-[120px] animate-pulse"></div>
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-[100px] animate-pulse delay-1000"></div>
@@ -145,11 +145,11 @@ export const HowItWorks: React.FC = () => {
             <Sparkles size={16} />
             <span>How It Works</span>
           </div>
-          
+
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display bg-gradient-to-r from-white via-brand-start to-brand-end text-transparent bg-clip-text mb-6">
             How Integen AI Works
           </h2>
-          
+
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Everything happens in one unified workspace — no switching apps, no subscriptions stacking, no lost creativity.
           </p>
@@ -188,12 +188,12 @@ export const HowItWorks: React.FC = () => {
               >
                 <div className={`relative p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all duration-300 ${mode.glow} hover:shadow-2xl`}>
                   <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${mode.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                  
+
                   <div className="relative text-center">
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${mode.color} p-4 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <mode.icon className="w-full h-full text-white" />
                     </div>
-                    
+
                     <h4 className="text-xl font-bold text-white mb-2">{mode.title}</h4>
                     <p className="text-sm text-slate-300">{mode.description}</p>
                   </div>
@@ -241,7 +241,7 @@ export const HowItWorks: React.FC = () => {
                   </div>
                   <span className="text-slate-300 text-sm font-mono">Integen Studio</span>
                 </div>
-                
+
                 <div className="bg-black/30 rounded-2xl p-6 border border-white/10">
                   <div className="flex items-center gap-3 mb-4">
                     <Upload size={20} className="text-brand-start" />
@@ -310,10 +310,10 @@ export const HowItWorks: React.FC = () => {
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${result.color} p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <result.icon className="w-full h-full text-white" />
                   </div>
-                  
+
                   <h4 className="text-lg font-bold text-white mb-3">{result.title}</h4>
                   <p className="text-sm text-slate-300">{result.description}</p>
-                  
+
                   {/* Animated indicator */}
                   <div className="mt-4 flex items-center gap-2">
                     <div className="flex gap-1">
@@ -396,17 +396,17 @@ export const HowItWorks: React.FC = () => {
               <Zap size={16} />
               <span>Ready to Start?</span>
             </div>
-            
+
             <h3 className="text-3xl sm:text-4xl font-bold font-display mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
                 Experience the Future of Creative Intelligence
               </span>
             </h3>
-            
+
             <p className="text-lg text-slate-300 mb-10">
               Join thousands of creators, developers, and businesses who have transformed their workflows with Integen AI.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                 <Sparkles size={20} />

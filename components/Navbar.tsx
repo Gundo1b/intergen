@@ -29,7 +29,6 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const navLinks = [
     { name: 'Product', href: '/features' },
     { name: 'How it Works', href: '/how-it-works' },
-    { name: 'Pricing', href: '/pricing' },
   ];
 
   return (

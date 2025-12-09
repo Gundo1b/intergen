@@ -15,6 +15,9 @@ import PricingPage from './pages/Pricing';
 import ChangelogPage from './pages/Changelog';
 import DemoPage from './pages/Demo';
 import UseCasesPage from './pages/UseCases';
+import CareersPage from './pages/Careers';
+import AboutPage from './pages/About';
+import BlogPage from './pages/Blog';
 
 function App() {
   const [theme, setTheme] = useState<Theme>('light');
@@ -59,6 +62,9 @@ function App() {
           <Route path="/changelog" element={<ChangelogPage />} />
           <Route path="/demo" element={<DemoPage />} />
           <Route path="/use-cases" element={<UseCasesPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

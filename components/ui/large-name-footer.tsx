@@ -54,7 +54,7 @@ function LargeNameFooter() {
               </a>
             </div>
             <p className="text-xs md:text-sm text-slate-500 dark:text-gray-400 mt-5">
-              © {new Date().getFullYear()} Integen AI Inc. All rights reserved.
+              © {new Date().getFullYear()} Integen AI. All rights reserved.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">

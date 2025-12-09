@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Sparkles } from 'lucide-react';
-import RevealText from './RevealText';
-import { TextGenerateEffect } from './TextGenerateEffect';
-import { TypewriterEffectSmooth } from './TypewriterEffect';
-import { SiriOrb } from './SiriOrb';
-import { ParticleBackground } from './ParticleBackground';
 import PhoneImage from '../pictures/phone.png';
 
 const models = ['GPT-4o/GPT-5', 'Claude 3.7/4', 'Gemini 2.5 Pro', 'Llama 3.3', 'DeepSeek', 'Qwen'];
@@ -13,28 +8,17 @@ const models = ['GPT-4o/GPT-5', 'Claude 3.7/4', 'Gemini 2.5 Pro', 'Llama 3.3', '
 export const Hero: React.FC = () => {
   const [activeModel, setActiveModel] = useState('Anthropic');
 
-  const typewriterWords = [
-    {
-      text: "endless",
-      className: "text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end",
-    },
-    {
-      text: "creative",
-      className: "text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end",
-    },
-    {
-      text: "intelligence.",
-      className: "text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end",
-    },
-  ];
-
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        <SiriOrb className="opacity-70 dark:opacity-80 scale-125" />
-        <div className="absolute inset-0 opacity-40 dark:opacity-60 mix-blend-screen">
-          <ParticleBackground />
+        {/* Simple gradient background instead of complex components */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
+        <div className="absolute inset-0 opacity-40 dark:opacity-60">
+          {/* Animated background elements */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
       </div>
 
@@ -54,21 +38,26 @@ export const Hero: React.FC = () => {
             </div>
 
             <div className="text-3xl sm:text-4xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white leading-[1.1] lg:leading-[1.2] tracking-tight break-words max-w-full">
-              <TextGenerateEffect words="One platform," />
+              <span className="text-slate-900 dark:text-white">One platform,</span>
               <br className="hidden sm:block" />
-              <TypewriterEffectSmooth
-                words={typewriterWords}
-                className="my-1 justify-center lg:justify-start"
-                textClassName="text-3xl sm:text-4xl lg:text-5xl font-bold font-display leading-[1.1] lg:leading-[1.2] tracking-tight break-words"
-                cursorClassName="h-8 sm:h-10 lg:h-14"
-              />
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end"
+              >
+                endless creative intelligence.
+              </motion.span>
             </div>
-            <h1 className="sr-only">One platform, endless creative intelligence.</h1>
 
             <div className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-lg lg:max-w-xl leading-relaxed mx-auto lg:mx-0 px-4 sm:px-0">
-              <RevealText direction="up" delay={800}>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
                 Unified Chat, Code, Image and Video generation. Stop juggling multiple subscriptions Integen routes your prompts to the best models automatically.
-              </RevealText>
+              </motion.p>
             </div>
           </div>
 
@@ -102,13 +91,25 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative h-[750px] sm:h-[800px] lg:h-[650px] w-full flex items-center justify-center z-10 mt-4 lg:mt-0 order-2 lg:order-2 animate-float"
+          className="relative h-[750px] sm:h-[800px] lg:h-[650px] w-full flex items-center justify-center z-10 mt-4 lg:mt-0 order-2 lg:order-2"
         >
-          <img
-            src={PhoneImage}
-            alt="Phone Mockup"
-            className="w-full h-full object-contain"
-          />
+          <motion.div
+            animate={{ 
+              y: [0, -20, 0],
+            }}
+            transition={{ 
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="w-full h-full"
+          >
+            <img
+              src={PhoneImage}
+              alt="Phone Mockup"
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

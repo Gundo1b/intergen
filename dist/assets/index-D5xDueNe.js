@@ -286,7 +286,7 @@ Error generating stack: `+l.message+`
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const gS=[["path",{d:"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",key:"1xq2db"}]],Ri=ut("zap",gS),iy=({className:n="",variant:i="full"})=>h.jsxs("div",{className:`flex items-center gap-3 select-none ${n}`,children:[i==="full"&&h.jsx("span",{className:"font-display text-2xl font-light tracking-[0.15em] text-slate-900 dark:text-white uppercase",children:"Integen"}),h.jsx("img",{src:"/logo.png",alt:"Integen Logo",className:"h-10"})]});/**
+ */const gS=[["path",{d:"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",key:"1xq2db"}]],Ri=ut("zap",gS),iy=({className:n="",variant:i="full"})=>h.jsx("div",{className:`flex items-center gap-3 select-none ${n}`,children:h.jsx("img",{src:"/logo.png",alt:"Integen Logo",className:"h-10"})});/**
  * react-router v7.10.1
  *
  * Copyright (c) Remix Software Inc.

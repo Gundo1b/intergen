@@ -54,7 +54,7 @@ function LargeNameFooter() {
               </a>
             </div>
             <p className="text-xs md:text-sm text-slate-500 dark:text-gray-400 mt-5">
-              © {new Date().getFullYear()} Integen AI Inc. All rights reserved.
+              © {new Date().getFullYear()} Integen AI . All rights reserved.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
@@ -146,9 +146,8 @@ function LargeNameFooter() {
                           setSelectedLang(lang);
                           setLangMenuOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${
-                          selectedLang === lang ? 'text-brand-end font-medium' : 'text-slate-700 dark:text-slate-300'
-                        }`}
+                        className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${selectedLang === lang ? 'text-brand-end font-medium' : 'text-slate-700 dark:text-slate-300'
+                          }`}
                       >
                         {lang}
                         {selectedLang === lang && <Check size={14} />}

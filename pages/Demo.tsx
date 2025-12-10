@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { OrbitalLoader } from '@/components/ui/orbital-loader';
-import { 
-  Sparkles, 
-  MessageSquare, 
-  Code, 
-  Image, 
+import {
+  Sparkles,
+  MessageSquare,
+  Code,
+  Image,
   Video,
   ArrowRight,
   Play,
@@ -68,16 +68,16 @@ export default function Demo() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-sm font-semibold uppercase tracking-wider mb-8 backdrop-blur-sm">
               <Sparkles size={16} />
-              <span>Component Demo</span>
+              <span> this is demo Component Demo</span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white mb-6">
               Orbital{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
                 Loader
               </span>
             </h1>
-            
+
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
               A beautiful, animated loading component with customizable message placement and styling.
             </p>
@@ -94,23 +94,22 @@ export default function Demo() {
               className="space-y-8"
             >
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Live Demo</h2>
-              
+
               {/* Controls */}
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
-                    Message Placement
+                    Message Placement this we add stylin
                   </label>
                   <div className="grid grid-cols-2 gap-3">
                     {placements.map((placement) => (
                       <button
                         key={placement.value}
                         onClick={() => setSelectedPlacement(placement.value)}
-                        className={`p-3 rounded-lg border-2 transition-all duration-200 flex items-center gap-3 ${
-                          selectedPlacement === placement.value
-                            ? 'border-brand-start bg-brand-start/10 text-brand-start'
-                            : 'border-slate-200 dark:border-slate-700 hover:border-brand-start/50'
-                        }`}
+                        className={`p-3 rounded-lg border-2 transition-all duration-200 flex items-center gap-3 ${selectedPlacement === placement.value
+                          ? 'border-brand-start bg-brand-start/10 text-brand-start'
+                          : 'border-slate-200 dark:border-slate-700 hover:border-brand-start/50'
+                          }`}
                       >
                         <span className="text-lg">{placement.icon}</span>
                         <span className="text-sm font-medium">{placement.label}</span>
@@ -144,7 +143,7 @@ export default function Demo() {
               {/* Orbital Loader Demo */}
               <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-8 flex items-center justify-center min-h-[200px]">
                 {isLoading ? (
-                  <OrbitalLoader 
+                  <OrbitalLoader
                     message={customMessage || "Loading Integen AI..."}
                     messagePlacement={selectedPlacement}
                   />
@@ -168,7 +167,7 @@ export default function Demo() {
               className="space-y-8"
             >
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Features</h2>
-              
+
               <div className="space-y-6">
                 {demoFeatures.map((feature, index) => (
                   <div key={feature.title} className="flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
@@ -221,11 +220,11 @@ export default function Demo() {
                   Integen AI application
                 </span>
               </h2>
-              
+
               <p className="text-lg text-slate-600 dark:text-slate-300 mb-10">
                 The orbital loader is now available in your components/ui folder and ready to use throughout your application.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                   <Sparkles size={20} />

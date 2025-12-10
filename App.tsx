@@ -14,10 +14,12 @@ import HowItWorksPage from './pages/HowItWorks';
 import PricingPage from './pages/Pricing';
 import ChangelogPage from './pages/Changelog';
 import DemoPage from './pages/Demo';
+import DynamicBorderDemo from './pages/DynamicBorderDemo';
 import UseCasesPage from './pages/UseCases';
 import CareersPage from './pages/Careers';
 import AboutPage from './pages/About';
 import BlogPage from './pages/Blog';
+import ComparisonPage from './pages/Comparison';
 
 function App() {
   const [theme, setTheme] = useState<Theme>('light');
@@ -61,9 +63,11 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/changelog" element={<ChangelogPage />} />
           <Route path="/demo" element={<DemoPage />} />
+          <Route path="/dynamic-border-demo" element={<DynamicBorderDemo />} />
           <Route path="/use-cases" element={<UseCasesPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/comparison" element={<ComparisonPage />} />
           <Route path="/blog" element={<BlogPage />} />
         </Routes>
         <Footer />

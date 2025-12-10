@@ -30,6 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     { name: 'AI Chat', href: '/ai-chat' },
     { name: 'AI Image', href: '/ai-image' },
     { name: 'AI Video', href: '/ai-video' },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Login', href: '/login' },
   ];
 

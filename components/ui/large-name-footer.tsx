@@ -5,8 +5,107 @@ import { Button } from "./button";
 import { Logo } from "../Logo";
 import { Link } from "react-router-dom";
 import { ColorChangingText } from "../ColorChangingText";
-import { Globe, Check, ChevronDown } from "lucide-react";
+import { Globe, Check, ChevronDown, Plus, LucideIcon, Facebook, Github, Instagram, Linkedin, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { InfiniteSlider } from "./infinite-slider";
+import { cn } from "../../lib/utils";
+
+interface SocialIcon {
+  Icon: LucideIcon
+  href?: string
+  className?: string
+}
+
+interface AnimatedSocialIconsProps {
+  icons: SocialIcon[]
+  className?: string
+  iconSize?: number
+}
+
+export function AnimatedSocialIcons({
+  icons,
+  className,
+  iconSize = 20
+}: AnimatedSocialIconsProps) {
+  const [active, setActive] = useState(false)
+
+  const buttonSize = "size-10 sm:size-16"
+
+  return (
+    <div className={cn("w-full relative flex items-start justify-start sm:justify-center", className)}>
+      <div className="flex items-center justify-center relative gap-4">
+        <motion.div
+          className="absolute left-0 bg-background w-full rounded-full z-10"
+          animate={{
+            x: active ? "calc(100% + 16px)" : 0,
+          }}
+          transition={{ type: "ease-in", duration: 0.5 }}
+        >
+          <motion.button
+            className={cn(
+              buttonSize,
+              "rounded-full flex items-center justify-center",
+              "bg-primary hover:bg-primary/90 transition-colors"
+            )}
+            onClick={() => setActive(!active)}
+            animate={{ rotate: active ? 45 : 0 }}
+            transition={{
+              type: "ease-in",
+              duration: 0.5,
+            }}
+          >
+            <Plus
+              size={iconSize}
+              strokeWidth={3}
+              className="text-primary-foreground"
+            />
+          </motion.button>
+        </motion.div>
+
+        {icons.map(({ Icon, href, className }, index) => (
+          <motion.div
+            key={index}
+            className={cn(
+              buttonSize,
+              "rounded-full flex items-center justify-center",
+              "bg-background shadow-lg hover:shadow-xl",
+              "border border-border",
+              className
+            )}
+            animate={{
+              filter: active ? "blur(0px)" : "blur(2px)",
+              scale: active ? 1 : 0.9,
+              rotate: active ? 0 : 45,
+            }}
+            transition={{
+              type: "ease-in",
+              duration: 0.4,
+            }}
+          >
+            {href ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center"
+              >
+                <Icon
+                  size={iconSize}
+                  className="text-muted-foreground transition-all hover:text-foreground hover:scale-110"
+                />
+              </a>
+            ) : (
+              <Icon
+                size={iconSize}
+                className="text-muted-foreground transition-all hover:text-foreground hover:scale-110"
+              />
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const languages = [
   'English', 'Español', 'Français', 'Deutsch', 'Português',
@@ -58,8 +157,8 @@ function LargeNameFooter() {
           >
             {sliderItems.map((item, index) => (
               <div key={index} className="flex items-center justify-center">
-                <img 
-                  src={item.logo} 
+                <img
+                  src={item.logo}
                   alt={item.name}
                   className="h-16 w-auto object-contain"
                 />
@@ -68,7 +167,7 @@ function LargeNameFooter() {
           </InfiniteSlider>
         </div>
       </div>
-      
+
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-0">
           <div className="mb-8 lg:mb-0">
@@ -89,6 +188,17 @@ function LargeNameFooter() {
                   <Icons.twitter className="icon-class ml-2 w-3.5 h-3.5" />
                 </Button>
               </a>
+              <div className="mt-4">
+                <AnimatedSocialIcons
+                  icons={[
+                    { Icon: Facebook },
+                    { Icon: Linkedin },
+                    { Icon: Github },
+                    { Icon: Instagram }
+                  ]}
+                  className="justify-start"
+                />
+              </div>
             </div>
             <p className="text-xs md:text-sm text-slate-500 dark:text-gray-400 mt-5">
               © {new Date().getFullYear()} Integen AI. All rights reserved.
@@ -99,16 +209,19 @@ function LargeNameFooter() {
               <h3 className="font-semibold mb-4 text-slate-900 dark:text-white">Product</h3>
               <ul className="space-y-2 text-sm md:text-base">
                 <li>
-                  <Link to="/features" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Features</Link>
+                  <Link to="/ai-chat" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">AI Chat</Link>
                 </li>
                 <li>
-                  <Link to="/how-it-works" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">How it works</Link>
+                  <Link to="/ai-image" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">AI Image</Link>
+                </li>
+                <li>
+                  <Link to="/ai-video" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">AI Video</Link>
+                </li>
+                <li>
+                  <Link to="/ai-code" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">AI Code</Link>
                 </li>
                 <li>
                   <Link to="/pricing" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Pricing</Link>
-                </li>
-                <li>
-                  <Link to="/changelog" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Changelog</Link>
                 </li>
               </ul>
             </div>
@@ -137,6 +250,9 @@ function LargeNameFooter() {
               <ul className="space-y-2 text-sm md:text-base">
                 <li>
                   <Link to="/about" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">About</Link>
+                </li>
+                <li>
+                  <Link to="/comparison" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Comparison</Link>
                 </li>
                 <li>
                   <Link to="/blog" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Blog</Link>
@@ -183,9 +299,8 @@ function LargeNameFooter() {
                           setSelectedLang(lang);
                           setLangMenuOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${
-                          selectedLang === lang ? 'text-brand-end font-medium' : 'text-slate-700 dark:text-slate-300'
-                        }`}
+                        className={`w-full text-left px-4 py-2 text-sm flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors ${selectedLang === lang ? 'text-brand-end font-medium' : 'text-slate-700 dark:text-slate-300'
+                          }`}
                       >
                         {lang}
                         {selectedLang === lang && <Check size={14} />}

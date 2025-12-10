@@ -1,13 +1,18 @@
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import { CTASection } from "../ui/cta-with-rectangle"
 
-function FeaturesSectionWithHoverEffectsDemo() {
+export function CTADemo() {
   return (
-    <div className="min-h-screen w-full">
-      <div className="absolute top-0 left-0 w-full">
-        <FeaturesSectionWithHoverEffects />
-      </div>
-    </div>
-  );
+    <CTASection
+      badge={{
+        text: "Get started"
+      }}
+      title="Start building with Launch UI"
+      description="Get started with Launch UI and build your landing page in no time"
+      action={{
+        text: "Get Started",
+        href: "/docs",
+        variant: "default"
+      }}
+    />
+  )
 }
-
-export { FeaturesSectionWithHoverEffectsDemo };

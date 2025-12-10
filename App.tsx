@@ -67,6 +67,7 @@ function App() {
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/comparison" element={<ComparisonPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

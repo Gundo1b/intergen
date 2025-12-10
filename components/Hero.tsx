@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
-        
+
         {/* Left Side: Copy & Controls */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
           className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 z-10 order-1 lg:order-1"
         >
           <div>
-            
+
 
             <div className="text-3xl sm:text-4xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white leading-[1.1] lg:leading-[1.2] tracking-tight break-words max-w-full">
               <span className="text-slate-900 dark:text-white">One Platform, </span>
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
 
           <div className="space-y-4 sm:space-y-6 mt-8">
             <div className="flex items-center gap-4 justify-center lg:justify-start px-4 sm:px-0">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
               >
                 Powered by
               </motion.span>
-              <motion.div 
+              <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
@@ -87,24 +87,17 @@ export const Hero: React.FC = () => {
             </div>
             <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start px-2 sm:px-0">
               {models.map((model, index) => (
-                <motion.span 
-                  key={model} 
+                <motion.span
+                  key={model}
                   initial={{ opacity: 0, y: 20, scale: 0.8 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.5, delay: 1.6 + index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     y: -2,
                     transition: { duration: 0.2 }
                   }}
-                  className={`px-4 sm:px-5 py-2 text-sm font-semibold rounded-xl shadow-lg cursor-pointer transition-all duration-300 backdrop-blur-sm border transform relative overflow-hidden group ${
-                    index === 0 ? 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-400/30 text-green-700 dark:text-green-400 hover:shadow-green-500/25' :
-                    index === 1 ? 'bg-gradient-to-r from-orange-500/20 to-amber-500/20 border-orange-400/30 text-orange-700 dark:text-orange-400 hover:shadow-orange-500/25' :
-                    index === 2 ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border-blue-400/30 text-blue-700 dark:text-blue-400 hover:shadow-blue-500/25' :
-                    index === 3 ? 'bg-gradient-to-r from-purple-500/20 to-violet-500/20 border-purple-400/30 text-purple-700 dark:text-purple-400 hover:shadow-purple-500/25' :
-                    index === 4 ? 'bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-400/30 text-red-700 dark:text-red-400 hover:shadow-red-500/25' :
-                    'bg-gradient-to-r from-indigo-500/20 to-blue-500/20 border-indigo-400/30 text-indigo-700 dark:text-indigo-400 hover:shadow-indigo-500/25'
-                  }`}
+                  className="px-4 sm:px-5 py-2 text-sm font-semibold rounded-xl shadow-lg cursor-pointer transition-all duration-300 backdrop-blur-sm border transform relative overflow-hidden group bg-gradient-to-r from-[#64E1FF]/20 to-[#009DFF]/40 border-[#009DFF]/30 text-[#009DFF] dark:text-[#64E1FF] hover:shadow-[#009DFF]/25"
                 >
                   {/* Animated background shimmer */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
@@ -123,10 +116,10 @@ export const Hero: React.FC = () => {
           className="relative h-[750px] sm:h-[800px] lg:h-[650px] w-full flex items-center justify-center z-10 mt-4 lg:mt-0 order-2 lg:order-2"
         >
           <motion.div
-            animate={{ 
+            animate={{
               y: [0, -20, 0],
             }}
-            transition={{ 
+            transition={{
               duration: 6,
               repeat: Infinity,
               ease: "easeInOut"

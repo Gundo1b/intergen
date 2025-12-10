@@ -1,22 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
+import { Sparkles, Crown, Check, Zap } from 'lucide-react';
 
-const starterFeatures = [
-    "Unlimited AI Generations",
-    "Advanced Invoices & Billing",
-    "Smart Consultations",
-    "Red Teaming Support",
-    "Basic Engineering Access"
-  ];
+const proFeatures = [
+  { text: "Unlimited AI Generations" },
+  { text: "Advanced Invoices & Billing" },
+  { text: "Smart Consultations" },
+  { text: "Red Teaming Support" },
+  { text: "Basic Engineering Access" }
+];
+
+const ultraFeatures = [
+  ...proFeatures,
+  { text: "Team Collaboration" },
+  { text: "Priority Support" },
+  { text: "Advanced Analytics" }
+];
 
 const enterpriseFeatures = [
-  "Everything in Starter",
-  "Multi-tenant Support",
-  "Contract Management",
-  "Dedicated Engineering",
-  "Advanced Analytics & Reporting",
-  "Custom Integrations & SSO"
+  { text: "Everything in Pro" },
+  { text: "Multi-tenant Support" },
+  { text: "Contract Management" },
+  { text: "Dedicated Engineering" },
+  { text: "Advanced Analytics & Reporting" },
+  { text: "Custom Integrations & SSO" }
 ];
 
 export default function Pricing() {

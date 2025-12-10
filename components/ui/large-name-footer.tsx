@@ -6,6 +6,7 @@ import { Logo } from "../Logo";
 import { Link } from "react-router-dom";
 import { ColorChangingText } from "../ColorChangingText";
 import { Globe, Check, ChevronDown } from "lucide-react";
+import { InfiniteSlider } from "./infinite-slider";
 
 const languages = [
   'English', 'Español', 'Français', 'Deutsch', 'Português',
@@ -16,6 +17,16 @@ function LargeNameFooter() {
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState('English');
   const langMenuRef = useRef<HTMLDivElement>(null);
+
+  const sliderItems = [
+    { name: "Academatrix", logo: "/splogos/Academatrix.png" },
+    { name: "Cybluence", logo: "/splogos/Cybluence.png" },
+    { name: "Decorexy", logo: "/splogos/Decorexy.png" },
+    { name: "Finance Portal", logo: "/splogos/Finance Portal.png" },
+    { name: "Icycon", logo: "/splogos/Icycon.png" },
+    { name: "UMetha", logo: "/splogos/UMetha.png" },
+    { name: "Viralitics", logo: "/splogos/Viralitics.png" }
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -32,6 +43,32 @@ function LargeNameFooter() {
 
   return (
     <footer className="py-12 px-4 md:px-6 bg-white dark:bg-bg-dark border-t border-slate-200 dark:border-slate-800">
+      {/* Infinite Slider Section */}
+      <div className="mb-16 pb-8 border-b border-slate-200 dark:border-slate-800">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-semibold text-slate-600 dark:text-gray-300">
+              Trusted by these companies
+            </h3>
+          </div>
+          <InfiniteSlider
+            duration={30}
+            gap={32}
+            className="py-4"
+          >
+            {sliderItems.map((item, index) => (
+              <div key={index} className="flex items-center justify-center">
+                <img 
+                  src={item.logo} 
+                  alt={item.name}
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </InfiniteSlider>
+        </div>
+      </div>
+      
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-0">
           <div className="mb-8 lg:mb-0">

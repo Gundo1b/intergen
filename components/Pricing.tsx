@@ -8,6 +8,7 @@ import {
   Check,
   ArrowDown
 } from 'lucide-react';
+import { Icons } from './ui/icons';
 
 interface PricingCardProps {
   title: string;
@@ -259,32 +260,32 @@ export function PricingSection11() {
                 {
                   title: "Beyond Conversations",
                   description: "Generate stunning visuals, create videos, write and debug code, analyze data, and solve complex problems - all from one platform.",
-                  icon: "🚀"
+                  icon: <Icons.rocket className="h-10 w-10 text-brand-start" />
                 },
                 {
                   title: "Cost Efficiency",
                   description: "Stop paying for multiple AI subscriptions. Get access to the best models for each task at a fraction of the cost.",
-                  icon: "💰"
+                  icon: <Icons.money className="h-10 w-10 text-brand-start" />
                 },
                 {
                   title: "Smart Routing",
                   description: "Our AI automatically chooses the best model for your specific needs, ensuring optimal results every time.",
-                  icon: "🧠"
+                  icon: <Icons.brain className="h-10 w-10 text-brand-start" />
                 },
                 {
                   title: "Creative Freedom",
                   description: "From image generation to video creation, from code writing to content creation - express your ideas without limits.",
-                  icon: "🎨"
+                  icon: <Icons.palette className="h-10 w-10 text-brand-start" />
                 },
                 {
                   title: "Professional Tools",
                   description: "Access enterprise-grade AI capabilities with team collaboration, project management, and advanced analytics.",
-                  icon: "⚡"
+                  icon: <Icons.lightning className="h-10 w-10 text-brand-start" />
                 },
                 {
                   title: "Future-Ready",
                   description: "Stay ahead with automatic integration of new AI models and capabilities as they're released to the market.",
-                  icon: "🔮"
+                  icon: <Icons.crystalBall className="h-10 w-10 text-brand-start" />
                 }
               ].map((item, index) => (
                 <motion.div
@@ -295,7 +296,7 @@ export function PricingSection11() {
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                   className="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-sm"
                 >
-                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <div className="text-4xl mb-4 flex items-center justify-center">{item.icon}</div>
                   <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{item.title}</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{item.description}</p>
                 </motion.div>
@@ -317,12 +318,30 @@ export function PricingSection11() {
                 This isn't just another AI chat tool - it's your complete creative and technical partner.
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">✨ Visual Creation</span>
-                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">🎬 Video Production</span>
-                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">💻 Code Development</span>
-                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">📊 Data Analysis</span>
-                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">🧮 Problem Solving</span>
-                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50">🎯 Strategic Planning</span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
+                  <Icons.visualCreation className="h-4 w-4" />
+                  <span>Visual Creation</span>
+                </span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
+                  <Icons.videoProduction className="h-4 w-4" />
+                  <span>Video Production</span>
+                </span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
+                  <Icons.codeDevelopment className="h-4 w-4" />
+                  <span>Code Development</span>
+                </span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
+                  <Icons.dataAnalysis className="h-4 w-4" />
+                  <span>Data Analysis</span>
+                </span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
+                  <Icons.problemSolving className="h-4 w-4" />
+                  <span>Problem Solving</span>
+                </span>
+                <span className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 rounded-full border border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
+                  <Icons.strategicPlanning className="h-4 w-4" />
+                  <span>Strategic Planning</span>
+                </span>
               </div>
             </motion.div>
           </div>

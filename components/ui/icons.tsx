@@ -139,4 +139,221 @@ export const Icons = {
       <path d="M21 12a9 9 0 1 1-6.219-8.56" />
     </svg>
   ),
+  visualCreation: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect width="18" height="18" x="3" y="3" rx="2" />
+      <circle cx="9" cy="9" r="2" />
+      <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+    </svg>
+  ),
+  videoProduction: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect width="20" height="14" x="2" y="5" rx="2" />
+      <line x1="2" x2="22" y1="10" y2="10" />
+      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+      <circle cx="5.5" cy="18.5" r="2.5" />
+    </svg>
+  ),
+  codeDevelopment: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  dataAnalysis: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M3 3v18h18" />
+      <path d="M18 17V9" />
+      <path d="M13 17V5" />
+      <path d="M8 17v-3" />
+    </svg>
+  ),
+  problemSolving: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m4.5-9.5L19 7l-2 2-2.5-2.5L12 2l-2.5 2.5L7 7l2.5-2.5" />
+    </svg>
+  ),
+  strategicPlanning: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M9 11l3 3l8-8" />
+      <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.11 0 2.15.2 3.08.57" />
+      <path d="M12 8v5" />
+      <path d="M12 16h.01" />
+    </svg>
+  ),
+  rocket: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M4.5 16.5c-1.5 1.5-2 4.5-2 4.5s3-0.5 4.5-2c0.95-0.95 2.55-1.5 4.5-1.5s3.55 0.55 4.5 1.5c1.5 1.5 2 4.5 2 4.5s-0.5 3-2 4.5c-0.95 0.95-1.5 2.55-1.5 4.5s0.55 3.55 1.5 4.5c1.5 1.5 4.5 2 4.5 2s-0.5 3-2 4.5c-0.95 0.95-2.55 1.5-4.5 1.5s-3.55-0.55-4.5-1.5c-1.5-1.5-2-4.5-2-4.5s0.5-3 2-4.5c0.95-0.95 1.5-2.55 1.5-4.5s-0.55-3.55-1.5-4.5z" />
+      <path d="M12 15l-3 3" />
+      <path d="M17.5 7.5L20 5" />
+    </svg>
+  ),
+  money: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect width="20" height="12" x="2" y="6" rx="2" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M6 12h.01" />
+      <path d="M18 12h.01" />
+    </svg>
+  ),
+  brain: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5a2.5 2.5 0 0 1 2.5-2.5C16.637 2 18 3.363 18 5c0 .463-.126.9-.35 1.287C19.25 7.25 20 8.21 20 9.5c0 1.59-1.16 2.887-2.5 3.258-.464.128-.963.242-1.5.342C16.91 14.23 17.5 15.79 17.5 17.5c0 1.93-1.57 3.5-3.5 3.5h-1c-.83 0-1.5-.67-1.5-1.5V17c0-.83-.67-1.5-1.5-1.5h-2c-.83 0-1.5-.67-1.5-1.5v-2C6 9.67 6.67 9 7.5 9H9c.83 0 1.5-.67 1.5-1.5V6c0-.83-.67-1.5-1.5-1.5H7.5C5.57 4.5 4 6.07 4 8c0 .79.27 1.51.73 2.09C3.27 10.51 3 11.21 3 12c0 1.79.73 3.42 1.93 4.65C6.16 18.27 7.79 19 9.5 19H11c1.21 0 2-.79 2-1.5V16.5c0-.21-.04-.41-.12-.6.21-.46.33-.99.33-1.53V13c0-.21-.04-.41-.12-.6.21-.46.33-.99.33-1.53V10.5c0-.21-.04-.41-.12-.6.21-.46.33-.99.33-1.53V7.5c0-.21-.04-.41-.12-.6.48-.66.79-1.45.79-2.31 0-1.36-1.14-2.59-2.59-2.59z" />
+    </svg>
+  ),
+  palette: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <circle cx="13.5" cy="6.5" r=".5" />
+      <circle cx="17.5" cy="10.5" r=".5" />
+      <circle cx="8.5" cy="7.5" r=".5" />
+      <circle cx="6.5" cy="12.5" r=".5" />
+      <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+    </svg>
+  ),
+  lightning: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+  ),
+  crystalBall: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M9 11H3v10a2 2 0 0 0 2 2h6" />
+      <path d="M9 11V9a3 3 0 1 1 6 0v2" />
+      <rect width="6" height="4" x="9" y="2" rx="1" />
+      <path d="M15.54 8.66a9 9 0 0 1 .66 10.34A2 2 0 0 1 14 21h-4a2 2 0 0 1-2-2V7a6 6 0 0 1 6-6z" />
+    </svg>
+  ),
 }

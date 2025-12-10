@@ -18,6 +18,7 @@ import UseCasesPage from './pages/UseCases';
 import CareersPage from './pages/Careers';
 import AboutPage from './pages/About';
 import BlogPage from './pages/Blog';
+import ComparisonPage from './pages/Comparison';
 import { ImageIcon } from 'lucide-react';
 
 function App() {

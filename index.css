@@ -107,3 +107,12 @@ body {
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+
+@keyframes bg-pan {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 50px 50px; }
+}
+
+.animate-bg-pan {
+  animation: bg-pan 30s linear infinite;
+}

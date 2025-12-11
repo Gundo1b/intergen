@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Sparkles } from 'lucide-react';
-import PhoneImage from '../pictures/phone.png';
+import { IntegrationsShowcase } from './IntegrationsShowcase';
+import { ParticleBackground } from './ParticleBackground';
+import { EncryptedText } from './ui/encrypted-text';
+import { TextGenerateEffect } from './ui/text-generate-effect';
 
 const models = ['ChatGPT', 'Claude', 'Gemini', 'Llama', 'DeepSeek', 'Qwen'];
 
@@ -10,18 +13,7 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center pt-20 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        {/* Simple gradient background instead of complex components */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
-        <div className="absolute inset-0 opacity-40 dark:opacity-60">
-          {/* Animated background elements */}
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse delay-500"></div>
-        </div>
-      </div>
-
+      <ParticleBackground className="absolute inset-0 z-0" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
 
         {/* Left Side: Copy & Controls */}
@@ -43,18 +35,20 @@ export const Hero: React.FC = () => {
                 transition={{ duration: 1, delay: 0.5 }}
                 className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end"
               >
-                Endless Creative Intelligence.
+                <EncryptedText
+                  text="Endless Creative Intelligence."
+                  revealDelayMs={50}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end"
+                  encryptedClassName="text-slate-400 dark:text-slate-600"
+                />
               </motion.span>
             </div>
 
-            <div className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-lg lg:max-w-xl leading-relaxed mx-auto lg:mx-0 px-4 sm:px-0">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                Unified Chat, Code, Image and Video generation. Stop Juggling Multiple Subscriptions Integen Routes Your Prompts To The Best Models Automatically.
-              </motion.p>
+            <div className="mt-4 sm:mt-6 max-w-lg lg:max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
+              <TextGenerateEffect
+                words="Unified Chat, Code, Image and Video generation. Stop Juggling Multiple Subscriptions Integen Routes Your Prompts To The Best Models Automatically."
+                className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 font-normal"
+              />
             </div>
           </div>
 
@@ -108,30 +102,14 @@ export const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Image */}
+        {/* Right Side: Integrations Showcase */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative h-[750px] sm:h-[800px] lg:h-[650px] w-full flex items-center justify-center z-10 mt-4 lg:mt-0 order-2 lg:order-2"
+          className="relative h-auto lg:h-full w-full flex items-center justify-center z-10 order-2 lg:order-2"
         >
-          <motion.div
-            animate={{
-              y: [0, -20, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="w-full h-full"
-          >
-            <img
-              src={PhoneImage}
-              alt="Phone Mockup"
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
+          <IntegrationsShowcase />
         </motion.div>
       </div>
     </section>

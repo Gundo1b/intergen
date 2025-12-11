@@ -26,7 +26,6 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     { name: 'AI Video', href: '/ai-video' },
     { name: 'AI Coding', href: '/ai-coding' },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'Login', href: '/login' },
   ];
 
   return (
@@ -55,6 +54,12 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
             <button
+              className="px-4 py-2 text-base font-medium rounded-full bg-gradient-to-r from-[#64E1FF] to-[#009DFF] text-white shadow-[0_0_15px_-5px_#64E1FF] hover:shadow-[0_0_25px_-10px_#64E1FF] hover:scale-105 transition-all duration-300"
+              onClick={() => window.location.href = '/login'}
+            >
+              Login
+            </button>
+            <button
               className="liquid-glass-button relative inline-flex h-10 cursor-pointer outline-none overflow-hidden transition-all duration-300 ease-out text-sm font-medium bg-gradient-to-r border rounded-full pr-6 pl-6 shadow-lg backdrop-blur-xl items-center justify-center hover:bg-gradient-to-r text-white/90 from-white/10 to-white/5 border-white/15 hover:from-white/15 hover:to-white/10"
               style={{
                 boxShadow:
@@ -73,6 +78,12 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               className={`transition-colors ${theme === 'light' ? 'text-slate-500 hover:text-slate-900' : 'text-slate-400 hover:text-white'}`}
             >
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+            <button
+              className={`px-3 py-1 text-sm font-medium rounded-full transition-colors ${theme === 'light' ? 'text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200' : 'text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700'}`}
+              onClick={() => window.location.href = '/login'}
+            >
+              Login
             </button>
             <button
               className="group relative inline-flex items-center justify-center rounded-full p-3 transition-all duration-300 hover:bg-white/10 active:scale-95 border border-white/5 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] bg-white/5"
@@ -116,13 +127,25 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative"
               >
-                <Link
-                  to={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-4xl font-bold text-white tracking-tight hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#64E1FF] hover:to-[#009DFF] transition-all duration-300"
-                >
-                  {link.name}
-                </Link>
+                {link.name === 'Login' ? (
+                  <button
+                    onClick={() => {
+                      window.location.href = link.href;
+                      setMobileMenuOpen(false);
+                    }}
+                    className="px-8 py-4 text-4xl font-bold text-white bg-gradient-to-r from-[#64E1FF] to-[#009DFF] rounded-full shadow-[0_0_30px_-5px_#64E1FF] hover:shadow-[0_0_50px_-10px_#64E1FF] hover:scale-105 transition-all duration-300"
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-4xl font-bold text-white tracking-tight hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#64E1FF] hover:to-[#009DFF] transition-all duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>

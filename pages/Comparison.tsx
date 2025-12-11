@@ -181,9 +181,8 @@ export default function Comparison() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                className={`grid grid-cols-4 gap-4 p-6 border-b border-slate-200 dark:border-slate-600 last:border-b-0 ${
-                  index % 2 === 0 ? 'bg-white/50 dark:bg-slate-800/30' : 'bg-slate-50/50 dark:bg-slate-700/20'
-                }`}
+                className={`grid grid-cols-4 gap-4 p-6 border-b border-slate-200 dark:border-slate-600 last:border-b-0 ${index % 2 === 0 ? 'bg-white/50 dark:bg-slate-800/30' : 'bg-slate-50/50 dark:bg-slate-700/20'
+                  }`}
               >
                 <div className="font-medium text-slate-900 dark:text-white">{item.feature}</div>
                 <div className="flex justify-center">
@@ -279,11 +278,11 @@ export default function Comparison() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-3 bg-white text-brand-end font-semibold rounded-xl hover:bg-slate-50 transition-colors duration-200 flex items-center gap-2">
-                Start Free Trial
+                get started
                 <ArrowRight size={20} />
               </button>
               <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-200">
-                Schedule Demo
+                Contact Us
               </button>
             </div>
           </motion.div>

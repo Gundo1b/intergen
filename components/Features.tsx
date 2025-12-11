@@ -157,7 +157,7 @@ export const Features: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              One Platform, <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">Infinite Possibilities</span>
+              Contact Us, <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">Infinite Possibilities</span>
             </motion.h2>
             <motion.p
               className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed"

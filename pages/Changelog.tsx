@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Sparkles, 
-  MessageSquare, 
-  Code, 
-  Image, 
-  Video, 
-  Users, 
-  Shield, 
+import {
+  Sparkles,
+  MessageSquare,
+  Code,
+  Image,
+  Video,
+  Users,
+  Shield,
   Zap,
   TrendingUp,
   ArrowRight,
@@ -38,7 +38,7 @@ const versions = [
     date: "2024 Q1",
     details: [
       "Unified workspace for chat intelligence, code assistance, and image generation",
-      "One platform instead of multiple tools and subscriptions",
+      "Contact Us instead of multiple tools and subscriptions",
       "Ensemble reasoning for high-quality responses",
       "Memory system for context awareness"
     ],
@@ -138,14 +138,14 @@ export default function Changelog() {
                 <GitBranch size={16} />
                 <span>Release Timeline</span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display text-slate-900 dark:text-white mb-6 leading-tight">
                 Evolution of{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">
                   Intelligence
                 </span>
               </h1>
-              
+
               <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
                 Track our journey from simple chat to enterprise-grade AI platform.
               </p>
@@ -167,12 +167,11 @@ export default function Changelog() {
                   className="group relative"
                 >
                   {/* Card */}
-                  <div className={`relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
-                    version.status === 'current' 
-                      ? 'border-2 border-blue-500/50 ring-2 ring-blue-500/20 shadow-blue-500/20' 
-                      : 'border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300/70 dark:hover:border-slate-600/70'
-                  }`}>
-                    
+                  <div className={`relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${version.status === 'current'
+                    ? 'border-2 border-blue-500/50 ring-2 ring-blue-500/20 shadow-blue-500/20'
+                    : 'border-slate-200/50 dark:border-slate-700/50 hover:border-slate-300/70 dark:hover:border-slate-600/70'
+                    }`}>
+
                     {/* Status Badge */}
                     {version.status === 'current' && (
                       <div className="absolute -top-3 -right-3">
@@ -188,7 +187,7 @@ export default function Changelog() {
                       <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${version.gradient} p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         <version.icon className="w-full h-full text-white" />
                       </div>
-                      
+
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
@@ -293,12 +292,12 @@ export default function Changelog() {
               className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 rounded-3xl p-8 sm:p-12 text-white shadow-2xl"
             >
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
-                Ready to Experience the Future?
+
               </h2>
               <p className="text-blue-100 mb-8 text-lg">
                 Join thousands of creators, developers, and teams already building with Integen AI
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
                   <Rocket size={20} />

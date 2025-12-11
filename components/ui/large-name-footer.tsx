@@ -143,30 +143,7 @@ function LargeNameFooter() {
   return (
     <footer className="py-12 px-4 md:px-6 bg-white dark:bg-bg-dark border-t border-slate-200 dark:border-slate-800">
       {/* Infinite Slider Section */}
-      <div className="mb-16 pb-8 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-8">
-            <h3 className="text-lg font-semibold text-slate-600 dark:text-gray-300">
-              Trusted by these companies
-            </h3>
-          </div>
-          <InfiniteSlider
-            duration={30}
-            gap={32}
-            className="py-4"
-          >
-            {sliderItems.map((item, index) => (
-              <div key={index} className="flex items-center justify-center">
-                <img
-                  src={item.logo}
-                  alt={item.name}
-                  className="h-16 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </InfiniteSlider>
-        </div>
-      </div>
+
 
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-0">

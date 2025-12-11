@@ -24,7 +24,9 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     { name: 'AI Chat', href: '/ai-chat' },
     { name: 'AI Image', href: '/ai-image' },
     { name: 'AI Video', href: '/ai-video' },
+    { name: 'AI Coding', href: '/ai-coding' },
     { name: 'Pricing', href: '/pricing' },
+    { name: 'Login', href: '/login' },
   ];
 
   return (
@@ -106,26 +108,23 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
           <div className="flex flex-col items-center space-y-8 z-20">
-            {navLinks.map((link, index) => {
-              if (link.name === "Login") return null;
-              return (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative"
+            {navLinks.map((link, index) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative"
+              >
+                <Link
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-4xl font-bold text-white tracking-tight hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#64E1FF] hover:to-[#009DFF] transition-all duration-300"
                 >
-                  <Link
-                    to={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-4xl font-bold text-white tracking-tight hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#64E1FF] hover:to-[#009DFF] transition-all duration-300"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              );
-            })}
+                  {link.name}
+                </Link>
+              </motion.div>
+            ))}
           </div>
           {/* Fancy Button */}
           <motion.div

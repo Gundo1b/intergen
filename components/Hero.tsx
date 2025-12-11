@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
 
 
             <div className="text-3xl sm:text-4xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white leading-[1.1] lg:leading-[1.2] tracking-tight break-words max-w-full">
-              <span className="text-slate-900 dark:text-white">One Platform, </span>
+              <span className="text-slate-900 dark:text-white">Contact Us, </span>
               <br className="hidden sm:block" />
               <motion.span
                 initial={{ opacity: 0 }}
@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
             <div className="mt-4 sm:mt-6 max-w-lg lg:max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
               <TextGenerateEffect
                 words="Unified Chat, Code, Image and Video generation. Stop Juggling Multiple Subscriptions Integen Routes Your Prompts To The Best Models Automatically."
-                className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-400 font-normal"
+                className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 font-normal"
               />
             </div>
           </div>

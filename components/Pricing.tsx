@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   CheckCircle,
@@ -6,9 +6,12 @@ import {
   Sparkles,
   Crown,
   Check,
-  ArrowDown
+  ArrowDown,
+  ArrowRight
 } from 'lucide-react';
 import { Icons } from './ui/icons';
+import { Comparison } from './pricing/Comparison';
+import { ContactForm } from './ContactForm';
 
 interface PricingCardProps {
   title: string;
@@ -30,8 +33,8 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className={`relative border rounded-3xl p-8 ${featured
-          ? 'border-brand-start/50 shadow-xl shadow-brand-start/10 scale-105'
-          : 'border-slate-200/50 dark:border-slate-700/50'
+        ? 'border-brand-start/50 shadow-xl shadow-brand-start/10 scale-105'
+        : 'border-slate-200/50 dark:border-slate-700/50'
         }`}
     >
       {featured && (
@@ -68,8 +71,8 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
       </ul>
 
       <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${featured
-          ? 'bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-lg hover:shadow-brand-start/25'
-          : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
+        ? 'bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-lg hover:shadow-brand-start/25'
+        : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
         }`}>
         Get Started
       </button>
@@ -78,6 +81,8 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
 }
 
 export function PricingSection11() {
+  const [showContactForm, setShowContactForm] = useState(false);
+
   const cards = [
     {
       title: "pro",
@@ -182,6 +187,7 @@ export function PricingSection11() {
 
   return (
     <section className="py-24 px-8 bg-bg-light dark:bg-bg-dark relative">
+       {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -191,7 +197,7 @@ export function PricingSection11() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-sm font-semibold uppercase tracking-wider mb-6">
-            <Sparkles size={16} />
+            {/* <Sparkles size={16} /> */}
             <span>Pricing Plans</span>
           </div>
 
@@ -222,29 +228,38 @@ export function PricingSection11() {
             </div>
           ))}
         </div>
+
+        <Comparison />
+
       </div>
 
       {/* Call to Action Section */}
-      <section className="py-16 px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
+            className="bg-gradient-to-r from-brand-start to-brand-end rounded-3xl p-8 md:p-12 text-white"
           >
-            <h3 className="text-3xl lg:text-4xl font-bold font-display text-slate-900 dark:text-white mb-4">
-              Ready to Transform Your Workflow?
-            </h3>
-            <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Join thousands of creators and teams already using Integen AI to accelerate their projects and unlock new possibilities.
+            <h2 className="text-3xl sm:text-4xl font-bold font-display mb-6">
+              Ready to Experience the Future?
+            </h2>
+            <p className="text-lg mb-8 opacity-90">
+              Join thousands of creators, developers, and teams who have chosen Integen
+              as their AI platform of choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-brand-start/25 transition-all duration-300">
-                Start Free Trial
+              <button className="px-8 py-3 bg-white text-brand-end font-semibold rounded-xl hover:bg-slate-50 transition-colors duration-200 flex items-center gap-2">
+                get started
+                <ArrowRight size={20} />
               </button>
-              <button className="px-8 py-4 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300">
-                Contact Sales
+              <button
+                onClick={() => setShowContactForm(true)}
+                className="px-8 py-3 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-200"
+              >
+                Contact Us
               </button>
             </div>
           </motion.div>

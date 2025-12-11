@@ -148,7 +148,7 @@ export default function Features() {
   return (
     <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 pb-12 lg:pt-32 lg:pb-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-brand-start/20 to-brand-end/20 rounded-full blur-[100px] animate-pulse"></div>
@@ -167,7 +167,7 @@ export default function Features() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-display text-slate-900 dark:text-white leading-tight tracking-tight mb-8">
-              One Platform.{' '}
+              Contact Us
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
                 Infinite Possibilities
               </span>
@@ -199,7 +199,7 @@ export default function Features() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -259,7 +259,7 @@ export default function Features() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}

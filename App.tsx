@@ -5,6 +5,7 @@ import { Features } from './components/Features';
 import { HowItWorks } from './components/HowItWorks';
 import { UseCases } from './components/UseCases';
 import PricingSection11 from './components/Pricing';
+import { TrustedBy } from './components/TrustedBy';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Theme } from './types';
@@ -52,6 +53,7 @@ function App() {
         <Route path="/" element={
           <>
             <Hero />
+            <TrustedBy />
             <Features />
             {/* <HowItWorks /> */}
             <UseCases />

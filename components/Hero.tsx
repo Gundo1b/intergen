@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
 
 
             <div className="text-3xl sm:text-4xl lg:text-6xl font-bold font-display text-slate-900 dark:text-white leading-[1.1] lg:leading-[1.2] tracking-tight break-words max-w-full">
-              <span className="text-slate-900 dark:text-white">Contact Us, </span>
+              <span className="text-slate-900 dark:text-white">One Platform, </span>
               <br className="hidden sm:block" />
               <motion.span
                 initial={{ opacity: 0 }}
@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
                 className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end"
               >
                 <EncryptedText
-                  text="Endless Creative Intelligence."
+                  text="endless creative intelligence.."
                   revealDelayMs={50}
                   className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end"
                   encryptedClassName="text-slate-400 dark:text-slate-600"

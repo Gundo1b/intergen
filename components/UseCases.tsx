@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PenTool, GraduationCap, Terminal, Rocket, Building2 } from 'lucide-react';
+import { AnimatedTabs } from './ui/animated-tabs';
 import { UseCase } from '../types';
 
 const cases: UseCase[] = [
@@ -36,6 +37,15 @@ const cases: UseCase[] = [
 ];
 
 export const UseCases: React.FC = () => {
+  const [activeTab, setActiveTab] = useState("All");
+
+  const tabs = ["All", "Creative", "Education", "Engineering", "Business"];
+
+  const filteredCases = cases.filter(useCase => {
+    if (activeTab === "All") return true;
+    return useCase.category === activeTab;
+  });
+
   return (
     <section id="use-cases" className="py-24 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,9 +63,19 @@ export const UseCases: React.FC = () => {
           </button>
         </div>
 
+        <div className="flex justify-center mb-12">
+          <AnimatedTabs
+            tabs={tabs}
+            activeTab={activeTab}
+            onChange={setActiveTab}
+            containerClassName="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-1 rounded-full border border-slate-200 dark:border-slate-700"
+            activeTabClassName="bg-brand-end text-white"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cases.map((useCase, index) => (
-            <div 
+          {filteredCases.map((useCase, index) => (
+            <div
               key={index}
               className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow group cursor-pointer"
             >

@@ -20,7 +20,12 @@ import CareersPage from './pages/Careers';
 import AboutPage from './pages/About';
 import BlogPage from './pages/Blog';
 import ComparisonPage from './pages/Comparison';
+import { AIChat as AIChatPage } from './pages/AIChat';
+import { AIImage as AIImagePage } from './pages/AIImage';
+import { AIVideo as AIVideoPage } from './pages/AIVideo';
+import { AICoding as AICodingPage } from './pages/AICoding';
 import { ImageIcon } from 'lucide-react';
+import Contact from './pages/Contact';
 
 function App() {
   const [theme, setTheme] = useState<Theme>('light');
@@ -70,6 +75,11 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/comparison" element={<ComparisonPage />} />
+        <Route path="/ai-chat" element={<AIChatPage />} />
+        <Route path="/ai-image" element={<AIImagePage />} />
+        <Route path="/ai-video" element={<AIVideoPage />} />
+        <Route path="/ai-coding" element={<AICodingPage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -237,6 +237,9 @@ function LargeNameFooter() {
                 <li>
                   <Link to="/careers" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Careers</Link>
                 </li>
+                <li>
+                  <Link to="/contact" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Contact</Link>
+                </li>
               </ul>
             </div>
             <div>

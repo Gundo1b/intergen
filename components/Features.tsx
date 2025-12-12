@@ -157,7 +157,7 @@ export const Features: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Contact Us, <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">Infinite Possibilities</span>
+              Why settle for one model when you can have them <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">all?</span>
             </motion.h2>
             <motion.p
               className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed"
@@ -166,7 +166,7 @@ export const Features: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Stop juggling multiple AI subscriptions. Integen brings together the best AI models for chat, code, images, and video - all in one powerful platform.
+              Forget switching between different AI services. Integen gives you elite AI for chat, code, images, and video  all in one place.
             </motion.p>
           </motion.div>
         </motion.div>

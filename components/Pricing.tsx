@@ -7,10 +7,15 @@ import {
   Crown,
   Check,
   ArrowDown,
-  ArrowRight
+  ArrowRight,
+  Palette,
+  Rocket,
+  Building,
+  Code,
+  GraduationCap
 } from 'lucide-react';
 import { Icons } from './ui/icons';
-import { Comparison } from './pricing/Comparison';
+
 import { ContactForm } from './ContactForm';
 
 interface PricingCardProps {
@@ -32,13 +37,7 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className={`relative border rounded-3xl p-8 ${featured
-        ? 'border-brand-start/50 shadow-xl shadow-brand-start/10 scale-105'
-        : 'border-slate-200/50 dark:border-slate-700/50'
-        }`}
-    >
-      {featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+      className={`relative border rounded-3xl p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl z-10 ${<div className="absolute -top-3 left-1/2 -translate-x-1/2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-semibold">
             <Crown size={14} />
             <span>Most Popular</span>
@@ -46,11 +45,13 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
         </div>
       )}
 
-      {showArrow && (
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
-          <div className="w-0 h-0 border-l-[16px] border-r-[16px] border-t-[16px] border-l-transparent border-r-transparent border-t-brand-start animate-bounce"></div>
-        </div>
-      )}
+{
+  showArrow && (
+    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
+      <div className="w-0 h-0 border-l-[16px] border-r-[16px] border-t-[16px] border-l-transparent border-r-transparent border-t-brand-start animate-bounce"></div>
+    </div>
+  )
+}
 
       <div className="text-center mb-8">
         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 capitalize">{title}</h3>
@@ -76,7 +77,7 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
         }`}>
         Get Started
       </button>
-    </motion.div>
+    </motion.div >
   );
 }
 
@@ -86,7 +87,7 @@ export function PricingSection11() {
   const cards = [
     {
       title: "pro",
-      desc: "For creators, developers, and solopreneurs",
+      desc: "",
       price: ["$", "25", "month"],
       options: [
         {
@@ -113,7 +114,7 @@ export function PricingSection11() {
     },
     {
       title: "ultra",
-      desc: "For professional teams and studios",
+      desc: "",
       price: ["$", "60", "month"],
       featured: true,
       showArrow: true,
@@ -142,7 +143,7 @@ export function PricingSection11() {
     },
     {
       title: "organizations & education",
-      desc: "Custom Private Hosting, Team Management, API & SDK, Analytics Dashboard, White Labelling, Role-based Access Control (RBAC), Multi-region Deployment, Compliance Certifications, Integration Support",
+      desc: "",
       price: ["", "Custom", ""],
       options: [
         {
@@ -187,7 +188,7 @@ export function PricingSection11() {
 
   return (
     <section className="py-24 px-8 bg-bg-light dark:bg-bg-dark relative">
-       {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
+      {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -229,7 +230,7 @@ export function PricingSection11() {
           ))}
         </div>
 
-        <Comparison />
+
 
       </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Crown, Check, Zap } from 'lucide-react';
+import { Sparkles, Crown, Check, Zap, ArrowRight } from 'lucide-react';
 
 const proFeatures = [
   { text: "Unlimited AI Generations" },
@@ -90,7 +90,6 @@ export default function Pricing() {
                     <span className="text-3xl font-semibold text-slate-900 dark:text-white">$25</span>
                     <span className="text-slate-600 dark:text-slate-400">/month</span>
                   </div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">Perfect for creators, developers, startups</p>
                 </div>
                 <button className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold hover:shadow-lg hover:shadow-brand-start/25 transition-all duration-300">
                   Start Pro
@@ -193,10 +192,6 @@ export default function Pricing() {
                 <h2 className="text-3xl sm:text-4xl font-bold font-display mb-6">
                   Ready to Experience the Future?
                 </h2>
-                <p className="text-lg mb-8 opacity-90">
-                  Join thousands of creators, developers, and teams who have chosen Integen
-                  as their AI platform of choice.
-                </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button className="px-8 py-3 bg-white text-brand-end font-semibold rounded-xl hover:bg-slate-50 transition-colors duration-200 flex items-center gap-2">
                     get started

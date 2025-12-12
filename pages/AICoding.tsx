@@ -7,7 +7,7 @@ interface AICodingProps {
 }
 
 const AI_CODING_PROVIDERS = [
-  { name: 'Copilot', id: 'copilot', color: 'text-purple-500', description: 'GitHub Copilot' },
+  { name: 'Copilot AI', id: 'copilot', color: 'text-purple-500', description: 'GitHub Copilot' },
   { name: 'CodeGemma', id: 'codegemma', color: 'text-green-500', description: 'Google CodeGemma' },
   { name: 'Code Llama', id: 'codellama', color: 'text-blue-500', description: 'Meta Code Llama' },
   { name: 'DeepSeek', id: 'deepseekcoder', color: 'text-red-500', description: 'DeepSeek Coder' },

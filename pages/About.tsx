@@ -71,21 +71,26 @@ export default function About() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-bg-light via-white to-blue-50/30 dark:from-bg-dark dark:via-slate-900 dark:to-blue-950/20 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto text-center">
+      <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-start/5 via-transparent to-brand-end/5 dark:from-brand-start/10 dark:to-brand-end/10" />
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-brand-start/20 to-brand-end/20 rounded-full blur-3xl opacity-30 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-brand-end/10 to-brand-start/10 rounded-full blur-3xl opacity-20" />
+        
+        <div className="max-w-6xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-start/10 dark:bg-brand-start/20 border border-brand-start/20 text-brand-end dark:text-brand-start text-sm font-semibold uppercase tracking-wider mb-8">
-              <Users size={16} />
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-start/10 to-brand-end/10 dark:from-brand-start/20 dark:to-brand-end/20 border border-brand-start/30 dark:border-brand-start/40 text-brand-end dark:text-brand-start text-sm font-semibold uppercase tracking-wider mb-8 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              {/* <Users size={16} /> */}
               <span>About Integen</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display text-slate-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-display text-slate-900 dark:text-white mb-8 leading-tight">
               Building the future of{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
                 intelligent assistance
@@ -101,8 +106,9 @@ export default function About() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-start/5 to-transparent dark:via-brand-start/10" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -119,7 +125,7 @@ export default function About() {
                 intuitive interface that amplifies human creativity and productivity.
               </p>
               <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                We're building more than just another AI tool—we're creating an ecosystem
+                We're building more than just another AI tool we're creating an ecosystem
                 where creators, developers, and teams can seamlessly leverage the power
                 of artificial intelligence to achieve extraordinary results.
               </p>
@@ -143,7 +149,8 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-brand-start/20 to-brand-end/20 rounded-3xl p-8 backdrop-blur-sm border border-brand-start/30">
+              <div className="bg-gradient-to-br from-brand-start/20 via-brand-start/10 to-brand-end/20 rounded-3xl p-8 backdrop-blur-sm border border-brand-start/30 shadow-2xl hover:shadow-brand-start/25 transition-all duration-500 hover:scale-105 group">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-start/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="grid grid-cols-3 gap-6">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-brand-end mb-2">50+</div>
@@ -165,8 +172,9 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-slate-800/50">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/80 to-blue-50/60 dark:from-slate-800/80 dark:to-slate-900/80 backdrop-blur-sm relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-start/5 to-transparent dark:via-brand-start/10" />
+        <div className="max-w-6xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,9 +193,9 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
-                  className="text-center"
+                  className="text-center group hover:scale-105 transition-all duration-300"
                 >
-                  <value.icon size={48} className="text-brand-end mx-auto mb-4" />
+                  <value.icon size={48} className="text-brand-end mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">{value.title}</h3>
                   <p className="text-slate-600 dark:text-slate-300">{value.description}</p>
                 </motion.div>
@@ -198,8 +206,9 @@ export default function About() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-start/5 via-transparent to-transparent dark:from-brand-start/10" />
+        <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -223,7 +232,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden hover:shadow-lg hover:shadow-brand-start/10 transition-all duration-300"
               >
                 <button
                   onClick={() => toggleFaq(index)}

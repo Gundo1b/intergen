@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AnimatedTabs } from '../components/ui/animated-tabs';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   MessageSquare,
   Code,
@@ -146,93 +146,94 @@ export default function Features() {
   });
 
   return (
-    <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-[#F9FBFF] dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 transition-colors duration-500">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 lg:pt-32 lg:pb-20 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-brand-start/20 to-brand-end/20 rounded-full blur-[100px] animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-[80px] animate-pulse delay-1000"></div>
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute inset-0 z-0 select-none pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[#64E1FF]/20 rounded-full blur-[120px] opacity-40 mix-blend-screen dark:opacity-20 animate-pulse-slow"></div>
+          <div className="absolute top-[20%] right-0 w-[800px] h-[600px] bg-[#009DFF]/10 rounded-full blur-[100px] opacity-30 mix-blend-screen dark:opacity-10"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-start/10 dark:bg-brand-start/20 border border-brand-start/20 text-brand-end dark:text-brand-start text-sm font-semibold uppercase tracking-wider mb-8">
-              <Sparkles size={16} />
-              <span>Unified Intelligence</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/5 backdrop-blur-md border border-[#64E1FF]/20 dark:border-white/10 text-slate-600 dark:text-slate-300 text-sm font-medium mb-8 hover:bg-white dark:hover:bg-white/10 transition-colors shadow-lg shadow-[#64E1FF]/10">
+              <Sparkles size={16} className="text-[#009DFF]" />
+              <span>Unified Intelligence Platform</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-display text-slate-900 dark:text-white leading-tight tracking-tight mb-8">
-              Contact Us
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
-                Infinite Possibilities
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-display text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-8">
+              Every tool you need.<br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#64E1FF] to-[#009DFF]">
+                One intelligent workspace.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed">
-              Show how Integen AI unifies chat, code, image, and video generation into one seamless creative workspace.
-              Experience the future of intelligent content creation.
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+              Stop switching between isolated AI tools. Integen AI unifies chat, coding, image, and video generation into a single, collaborative workflow.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Core Features Section */}
-      <section className="py-20 lg:py-32 relative">
+      {/* Core Features Section - Bento Grid Style */}
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            viewport={{ once: true }}
+            className="text-center mb-16 relative z-10"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-6">
-              Core Features
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Powerhouse Capabilities
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Everything you need for creative intelligence in one unified platform
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              A comprehensive suite of generative tools designed to work together perfectly.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative"
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative h-full"
               >
-                <div className="glass-panel p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-violet-400/20 to-blue-300/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative h-full bg-white dark:bg-slate-900/40 backdrop-blur-xl border border-white/50 dark:border-white/10 rounded-3xl p-8 overflow-hidden hover:border-[#64E1FF]/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-[#64E1FF]/10">
+                  <div className={`absolute -right-12 -top-12 w-48 h-48 bg-gradient-to-br ${feature.color} opacity-5 blur-3xl rounded-full group-hover:opacity-10 transition-opacity`}></div>
 
-                  <div className="relative">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <feature.icon className="w-full h-full text-white" />
+                  <div className="flex flex-col h-full relative z-10">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center text-white shadow-lg`}>
+                        <feature.icon size={24} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                        {feature.title}
+                      </h3>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                      {feature.title}
-                    </h3>
-
-                    <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed flex-grow">
                       {feature.description}
                     </p>
 
-                    <ul className="space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {feature.features.map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-sm">
-                          <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                          <span className="text-slate-700 dark:text-slate-300">{item}</span>
-                        </li>
+                        <div key={i} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${feature.color}`} />
+                          {item}
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -242,46 +243,39 @@ export default function Features() {
       </section>
 
       {/* Why It's Different Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900/50 dark:to-slate-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-slate-100/50 dark:bg-white/[0.02]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-6">
-              Why It's Different
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Why Builders Choose Integen
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Experience the advantages of unified creative intelligence
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
-                <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm p-8 rounded-2xl border border-white/20 dark:border-slate-700/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${benefit.color} p-4 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <benefit.icon className="w-full h-full text-white" />
-                  </div>
-
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                    {benefit.title}
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-slate-400">
-                    {benefit.description}
-                  </p>
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${benefit.color} flex items-center justify-center text-white mb-4`}>
+                  <benefit.icon size={20} />
                 </div>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">
+                  {benefit.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -289,108 +283,85 @@ export default function Features() {
       </section>
 
       {/* Built for Everyone Section */}
-      <section className="py-20 lg:py-32 relative">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 z-0 opacity-5 dark:opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23009DFF' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            viewport={{ once: true }}
+            className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-6">
-              Built for every kind of builder
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+              Tailored for your workflow
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              From individual creators to enterprise teams, Integen AI adapts to your needs
-            </p>
+            <div className="flex justify-center">
+              <AnimatedTabs
+                tabs={tabs}
+                activeTab={activeTab}
+                onChange={setActiveTab}
+                containerClassName="bg-white/50 dark:bg-slate-900/50 p-1.5 rounded-full border border-white/20 shadow-sm"
+                activeTabClassName="bg-white dark:bg-slate-800 text-[#009DFF] dark:text-white shadow-md"
+                tabClassName="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+              />
+            </div>
           </motion.div>
 
-          <div className="flex justify-center mb-12">
-            <AnimatedTabs
-              tabs={tabs}
-              activeTab={activeTab}
-              onChange={setActiveTab}
-              containerClassName="bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm p-1 rounded-full border border-slate-200 dark:border-slate-700"
-              activeTabClassName="bg-brand-end text-white"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredAudiences.map((audience, index) => (
-              <motion.div
-                key={audience.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative overflow-hidden"
-              >
-                <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm p-8 rounded-2xl border border-white/20 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${audience.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-
-                  <div className="relative text-center">
-                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${audience.gradient} p-5 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <audience.icon className="w-full h-full text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {filteredAudiences.map((audience) => (
+                <motion.div
+                  layout
+                  key={audience.title}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="group relative"
+                >
+                  <div className="h-full bg-white dark:bg-slate-900 border border-white/50 dark:border-slate-800 rounded-3xl p-8 hover:shadow-2xl hover:shadow-[#64E1FF]/10 dark:hover:shadow-[#64E1FF]/5 transition-all duration-300 hover:-translate-y-1">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${audience.gradient} p-4 mb-6 text-white shadow-md transform group-hover:scale-105 transition-transform duration-300`}>
+                      <audience.icon className="w-full h-full" />
                     </div>
-
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
-                      {audience.title}
-                    </h3>
-
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                      {audience.description}
-                    </p>
-
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium">
+                    <div className="inline-block px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-semibold text-slate-600 dark:text-slate-300 mb-4">
                       {audience.category}
                     </div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                      {audience.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                      {audience.description}
+                    </p>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-brand-start/10 via-brand-end/10 to-purple-500/10 dark:from-brand-start/5 dark:via-brand-end/5 dark:to-purple-500/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#64E1FF]/10 pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white/80 dark:bg-white/5 backdrop-blur-2xl rounded-[3rem] p-12 sm:p-20 border border-white/50 dark:border-white/10 shadow-2xl shadow-[#64E1FF]/20"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-sm font-semibold uppercase tracking-wider mb-8">
-              <Star size={16} />
-              <span>Get Started Today</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-6">
-              Ready to experience the future of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
-                creative intelligence?
-              </span>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+              Ready to create?
             </h2>
-
-            <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto">
-              Join thousands of creators, developers, and businesses who have already transformed their workflows with Integen AI.
+            <p className="text-lg text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto">
+              Join the ecosystem of builders who are shipping faster with Integen AI.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white font-semibold text-lg hover:shadow-lg hover:shadow-brand-start/25 hover:-translate-y-1 transition-all duration-300">
-                Start for free
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="px-8 py-4 rounded-full bg-gradient-to-r from-[#64E1FF] to-[#009DFF] text-white font-bold text-lg hover:scale-105 transition-transform duration-200 shadow-xl shadow-[#009DFF]/30">
+                Get Started Free
               </button>
-              <button className="px-8 py-4 rounded-full border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all duration-300">
-                View documentation
+              <button className="px-8 py-4 rounded-full text-slate-600 dark:text-slate-300 font-semibold hover:bg-slate-100 dark:hover:bg-white/5 transition-colors">
+                Contact Sales
               </button>
             </div>
           </motion.div>

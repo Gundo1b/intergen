@@ -31,60 +31,86 @@ interface PricingCardProps {
 }
 
 function PricingCard({ title, desc, price, options, featured = false, showArrow = false }: PricingCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className={`relative border rounded-3xl p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl z-10 ${featured
-          ? 'border-brand-start/50 shadow-xl shadow-brand-start/10 scale-105'
-          : 'border-slate-200/50 dark:border-slate-700/50'
-        }`}
+      transition={{ duration: 0.5 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative bg-gradient-to-br from-[#F9FBFF]/95 to-white/90 dark:from-gray-900/95 dark:to-gray-800/90 backdrop-blur-sm border rounded-2xl p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-sky-400/20 hover:border-sky-300/70 group ${
+        featured
+          ? 'border-2 border-sky-400 shadow-xl shadow-sky-400/20 scale-105'
+          : 'border border-sky-200/50 dark:border-gray-700/50 shadow-lg'
+      }`}
     >
-      {featured && (
-        <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-r from-brand-start to-brand-end opacity-0 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-      )}
+      {/* Aurora shimmer effect on hover */}
+      <div className={`absolute inset-0 bg-gradient-to-r from-sky-400/0 via-cyan-300/0 to-violet-400/0 rounded-2xl transition-all duration-700 ${
+        isHovered ? 'bg-gradient-to-r from-sky-400/5 via-cyan-300/10 to-violet-400/5' : ''
+      }`}></div>
 
       {featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-brand-start to-brand-end text-white text-xs font-semibold">
-            <Crown size={14} />
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-400 to-cyan-400 text-white text-sm font-semibold shadow-lg shadow-sky-400/25">
+            <Crown size={16} />
             <span>Most Popular</span>
           </div>
         </div>
       )}
 
-      {showArrow && (
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
-          <div className="w-0 h-0 border-l-[16px] border-r-[16px] border-t-[16px] border-l-transparent border-r-transparent border-t-brand-start animate-bounce"></div>
-        </div>
-      )}
-
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 capitalize">{title}</h3>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{desc}</p>
+      <div className="text-center mb-8 relative z-10">
+        <h3 className={`text-2xl font-bold mb-2 uppercase tracking-wide transition-all duration-300 ${
+          isHovered 
+            ? 'bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent' 
+            : 'text-gray-900 dark:text-white'
+        }`}>
+          {title}
+        </h3>
+        {desc && <p className="text-sm text-sky-600 dark:text-sky-400 mb-4 font-medium">{desc}</p>}
         <div className="flex items-baseline justify-center gap-1">
-          <span className="text-4xl font-bold text-slate-900 dark:text-white">{price[0]}{price[1]}</span>
-          <span className="text-lg font-semibold text-slate-600 dark:text-slate-400">/{price[2]}</span>
+          <span className="text-5xl font-light text-gray-900 dark:text-white">{price[0]}</span>
+          <span className={`text-4xl font-bold transition-all duration-300 ${
+            isHovered 
+              ? 'bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent' 
+              : 'text-gray-900 dark:text-white'
+          }`}>
+            {price[1]}
+          </span>
+          {price[2] && <span className="text-lg font-medium text-gray-500 dark:text-gray-400 ml-2">{price[2]}</span>}
         </div>
       </div>
 
-      <ul className="flex flex-col gap-3 mb-8">
+      <ul className="flex flex-col gap-4 mb-8 relative z-10">
         {options.map((option, key) => (
-          <li key={key} className="flex items-center gap-3 text-slate-700 dark:text-slate-300">
-            {option.icon}
-            <span className="text-sm font-normal">{option.info}</span>
+          <li key={key} className="flex items-start gap-3">
+            <div className="flex-shrink-0 mt-0.5">
+              <CheckCircle className="h-5 w-5 text-sky-500" />
+            </div>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 leading-relaxed">{option.info}</span>
           </li>
         ))}
       </ul>
 
-      <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${featured
-          ? 'bg-gradient-to-r from-brand-start to-brand-end text-white hover:shadow-lg hover:shadow-brand-start/25'
-          : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600'
-        }`}>
+      <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 border-2 relative z-10 ${
+        featured
+          ? 'bg-gradient-to-r from-sky-400 to-cyan-400 text-white border-transparent hover:from-sky-500 hover:to-cyan-500 shadow-lg hover:shadow-xl hover:shadow-sky-400/40'
+          : 'bg-transparent text-gray-900 dark:text-white border-sky-300 dark:border-gray-600 hover:border-sky-500 dark:hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-400'
+      }`}>
         Get Started
       </button>
+
+      {/* Floating accent on hover */}
+      <div className={`absolute top-4 right-4 w-3 h-3 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 ${
+        isHovered ? 'animate-pulse' : ''
+      }`}></div>
+
+      {/* Bottom accent */}
+      <div className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-sky-400 via-cyan-400 to-violet-400 rounded-full transition-all duration-500 ${
+        isHovered ? 'opacity-100' : 'opacity-0'
+      }`}></div>
     </motion.div>
   );
 }
@@ -94,100 +120,99 @@ export function PricingSection11() {
 
   const cards = [
     {
-      title: "pro",
-      desc: "",
-      price: ["$", "25", "month"],
+      title: "Pro",
+      desc: "Perfect for individuals",
+      price: ["$", "25", "/month"],
       options: [
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Chat, Code, Image Generation",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Advanced Memory Context",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Iterative Refinement Loops",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Priority Compute Access",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Basic Ensemble Reasoning",
         },
       ],
     },
     {
-      title: "ultra",
-      desc: "",
-      price: ["$", "60", "month"],
+      title: "Ultra",
+      desc: "For teams and professionals",
+      price: ["$", "60", "/month"],
       featured: true,
-      showArrow: true,
       options: [
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Everything in Pro",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Enhanced Ensemble Reasoning",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "4K Visual Generation",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Real-time Collaboration",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Team Shared Workspaces",
         },
       ],
     },
     {
-      title: "organizations & education",
-      desc: "",
+      title: "Enterprise",
+      desc: "Custom solutions",
       price: ["", "Custom", ""],
       options: [
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Custom Private Hosting",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Team Management",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "API & SDK Access",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Analytics Dashboard",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "White Labelling",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
-          info: "Role-based Access Control (RBAC)",
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
+          info: "Role-based Access Control",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Multi-region Deployment",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Compliance Certifications",
         },
         {
-          icon: <CheckCircle className="h-5 w-5 text-green-600" />,
+          icon: <CheckCircle className="h-5 w-5 text-sky-500" />,
           info: "Integration Support",
         },
       ],
@@ -195,35 +220,41 @@ export function PricingSection11() {
   ];
 
   return (
-    <section className="py-24 px-8 bg-bg-light dark:bg-bg-dark relative">
+    <section className="py-24 px-4 relative overflow-hidden">
+      {/* Aurora background effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-cyan-400/20 via-violet-500/20 to-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-blue-400/20 via-cyan-300/20 to-violet-600/20 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-r from-sky-400/10 via-cyan-300/10 to-violet-400/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+      </div>
+
       {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-start/20 to-brand-end/20 border border-brand-start/30 text-brand-start text-sm font-semibold uppercase tracking-wider mb-6">
-            {/* <Sparkles size={16} /> */}
-            <span>Pricing Plans</span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#F9FBFF]/90 to-white/90 dark:from-gray-900/90 dark:to-gray-800/90 border border-sky-200/50 dark:border-gray-700/50 text-sky-600 dark:text-sky-400 text-sm font-medium uppercase tracking-wider mb-8 backdrop-blur-sm">
+            <span>Pricing</span>
           </div>
 
-          <h2 className="text-4xl lg:text-5xl font-bold font-display text-slate-900 dark:text-white mb-4">
-            Invest in a plan that's as ambitious as your{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-start to-brand-end">
-              corporate goals
+          <h2 className="text-5xl lg:text-6xl font-light text-gray-900 dark:text-white mb-6">
+            Simple, transparent{' '}
+            <span className="font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
+              pricing
             </span>
           </h2>
 
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Compare the benefits and features of each plan below to find the ideal
-            match for your business's budget and ambitions.
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Choose the perfect plan for your needs. All plans include our core AI features
+            with no hidden fees or surprise charges.
           </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto mb-20">
           {cards.map((card, key) => (
             <div key={key} className="relative">
               <PricingCard
@@ -232,43 +263,44 @@ export function PricingSection11() {
                 price={card.price}
                 options={card.options}
                 featured={card.featured}
-                showArrow={card.showArrow}
               />
             </div>
           ))}
         </div>
 
-
-
       </div>
 
       {/* Call to Action Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-0 relative z-10 bg-[#0A1634]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-r from-brand-start to-brand-end rounded-3xl p-8 md:p-12 text-white"
+            className="bg-gradient-to-r from-[#88E0FF] via-[#4ABEFF] to-[#1A8CFF] rounded-3xl p-12 mx-4 lg:mx-8" 
+            style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'}}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold font-display mb-6">
-              Ready to Experience the Future?
+            <h2 className="text-4xl font-light text-white mb-6">
+              Ready to Experience the{' '}
+              <span className="font-bold text-white">
+                Future?
+              </span>
             </h2>
-            <p className="text-lg mb-8 opacity-90">
+            <p className="text-lg text-white mb-8 max-w-2xl mx-auto opacity-90">
               Join thousands of creators, developers, and teams who have chosen Integen
               as their AI platform of choice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-brand-end font-semibold rounded-xl hover:bg-slate-50 transition-colors duration-200 flex items-center gap-2">
-                get started
+              <button className="px-8 py-4 bg-white text-[#1A8CFF] font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                Get Started Now
                 <ArrowRight size={20} />
               </button>
               <button
                 onClick={() => setShowContactForm(true)}
-                className="px-8 py-3 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-200"
+                className="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-200"
               >
-                Contact Us
+                Contact Sales
               </button>
             </div>
           </motion.div>

@@ -166,13 +166,13 @@ export default function Careers() {
   const otherJobs = jobOpenings.filter(job => !job.featured);
 
   return (
-    <div className="min-h-screen bg-bg-light dark:bg-bg-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50/80 via-cyan-50/60 to-blue-50/80 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-indigo-400 to-pink-400 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-100/50 via-cyan-100/30 to-blue-100/50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"></div>
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-cyan-400 to-sky-400 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-sky-400 to-blue-400 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative max-w-6xl mx-auto text-center">
@@ -181,14 +181,14 @@ export default function Careers() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-200/30 text-blue-600 dark:text-blue-400 text-sm font-semibold uppercase tracking-wider mb-8 backdrop-blur-sm">
-              <Briefcase size={16} />
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-sky-500/10 to-cyan-500/10 border border-sky-200/30 text-sky-600 dark:text-sky-400 text-sm font-semibold uppercase tracking-wider mb-8 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+             
               <span>Join Our Team</span>
             </div>
             
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold font-display text-slate-900 dark:text-white mb-8 leading-tight">
               Join the Future of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500">
                 Creative Intelligence
               </span>
             </h1>
@@ -201,8 +201,9 @@ export default function Careers() {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50/80 to-sky-50/60 dark:from-slate-800 dark:to-slate-900 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent dark:via-sky-500/10" />
+        <div className="max-w-5xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,10 +211,10 @@ export default function Careers() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur opacity-20"></div>
-            <div className="relative bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-3xl p-10 lg:p-16 shadow-2xl border border-white/20">
+            <div className="absolute -inset-4 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-3xl blur opacity-20"></div>
+            <div className="relative bg-gradient-to-br from-slate-50/90 to-sky-50/70 dark:from-slate-800/90 dark:to-slate-900/70 backdrop-blur-sm rounded-3xl p-10 lg:p-16 shadow-2xl border border-slate-200/30 dark:border-slate-700/30">
               <div className="text-center mb-8">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 p-4 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 p-4 flex items-center justify-center shadow-lg">
                   <Rocket className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white mb-6">
@@ -229,8 +230,9 @@ export default function Careers() {
       </section>
 
       {/* Why Work at Integen */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/5 to-transparent dark:via-cyan-500/10" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -254,12 +256,12 @@ export default function Careers() {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="group"
             >
-              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-700 border border-blue-100 dark:border-slate-600 hover:shadow-xl transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-slate-50/80 to-cyan-50/60 dark:from-slate-800/80 dark:to-slate-700/80 border border-sky-100/50 dark:border-slate-600/50 hover:shadow-xl hover:shadow-sky-500/10 transition-all duration-300 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Lightbulb className="w-full h-full text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                     Shape the Future
                   </h3>
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -276,12 +278,12 @@ export default function Careers() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="group"
             >
-              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-800 dark:to-slate-700 border border-green-100 dark:border-slate-600 hover:shadow-xl transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-slate-50/80 to-emerald-50/60 dark:from-slate-800/80 dark:to-slate-700/80 border border-sky-100/50 dark:border-slate-600/50 hover:shadow-xl hover:shadow-sky-500/10 transition-all duration-300 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Globe className="w-full h-full text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     Freedom to Create
                   </h3>
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -298,8 +300,8 @@ export default function Careers() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="group"
             >
-              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-slate-800 dark:to-slate-700 border border-purple-100 dark:border-slate-600 hover:shadow-xl transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-slate-50/80 to-purple-50/60 dark:from-slate-800/80 dark:to-slate-700/80 border border-sky-100/50 dark:border-slate-600/50 hover:shadow-xl hover:shadow-sky-500/10 transition-all duration-300 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Users className="w-full h-full text-white" />
                 </div>
                 <div>
@@ -320,12 +322,12 @@ export default function Careers() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="group"
             >
-              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-orange-50 to-red-50 dark:from-slate-800 dark:to-slate-700 border border-orange-100 dark:border-slate-600 hover:shadow-xl transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-red-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-start gap-6 p-8 rounded-3xl bg-gradient-to-br from-slate-50/80 to-blue-50/60 dark:from-slate-800/80 dark:to-slate-700/80 border border-sky-100/50 dark:border-slate-600/50 hover:shadow-xl hover:shadow-sky-500/10 transition-all duration-300 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-sky-500 p-4 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Brain className="w-full h-full text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     Push Boundaries
                   </h3>
                   <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -339,10 +341,10 @@ export default function Careers() {
       </section>
 
       {/* Team Culture Block */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800/90 via-sky-900/80 to-cyan-900/90 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative max-w-6xl mx-auto">
@@ -353,18 +355,18 @@ export default function Careers() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 p-8 flex items-center justify-center">
+            <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-sky-400 to-cyan-400 p-8 flex items-center justify-center shadow-2xl">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                 <div className="grid grid-cols-3 gap-2">
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-pink-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-sky-500 rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -377,7 +379,7 @@ export default function Careers() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur opacity-30"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-3xl blur opacity-30"></div>
             <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-12 lg:p-16 border border-white/20">
               <p className="text-2xl sm:text-3xl lg:text-4xl text-white leading-relaxed text-center font-light">
                 "We're a tight-knit community of innovators who thrive on curiosity and collaboration. Our shared passion for empowering creators drives us to build tools that don't just meet today's needs — they anticipate tomorrow's possibilities. If you're excited about building technology that amplifies human creativity, you'll find your tribe here."
@@ -388,8 +390,9 @@ export default function Careers() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-slate-900">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50/80 to-sky-50/60 dark:from-slate-800 dark:to-slate-900 relative">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDYwIDAgTCAwIDAgMCA2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -415,11 +418,11 @@ export default function Careers() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-lg border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 p-4 mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-slate-50/90 to-sky-50/80 dark:from-slate-800/90 dark:to-slate-900/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-slate-200/30 dark:border-slate-700/30 hover:shadow-2xl hover:shadow-sky-500/20 hover:-translate-y-2 transition-all duration-300 h-full">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                     <benefit.icon className="w-full h-full text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                     {benefit.title}
                   </h3>
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -433,8 +436,9 @@ export default function Careers() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/5 to-transparent dark:via-cyan-500/10" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -463,22 +467,22 @@ export default function Careers() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group relative overflow-hidden"
                 >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
-                  <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl transition-all duration-300">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-sky-500 to-cyan-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                  <div className="relative bg-gradient-to-br from-slate-50/90 to-sky-50/80 dark:from-slate-800/90 dark:to-slate-900/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-slate-200/30 dark:border-slate-700/30 hover:shadow-2xl hover:shadow-sky-500/20 transition-all duration-300">
                     <div className="flex items-start gap-6">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 p-4 flex-shrink-0">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 p-4 flex-shrink-0 shadow-lg">
                         <job.icon className="w-full h-full text-white" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                             {job.title}
                           </h3>
-                          <div className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold rounded-full">
+                          <div className="px-3 py-1 bg-gradient-to-r from-sky-500 to-cyan-500 text-white text-xs font-semibold rounded-full">
                             FEATURED
                           </div>
                         </div>
-                        <p className="text-blue-600 dark:text-blue-400 font-semibold mb-3">{job.department}</p>
+                        <p className="text-sky-600 dark:text-sky-400 font-semibold mb-3">{job.department}</p>
                         <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                           {job.description}
                         </p>
@@ -497,13 +501,13 @@ export default function Careers() {
                           <ul className="space-y-1">
                             {job.requirements.slice(0, 2).map((req, i) => (
                               <li key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
-                                <CheckCircle size={12} className="text-green-500 flex-shrink-0" />
+                                <CheckCircle size={12} className="text-emerald-500 flex-shrink-0" />
                                 <span>{req}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
-                        <button className="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-2xl hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                        <button className="w-full px-6 py-4 bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-semibold rounded-2xl hover:shadow-lg hover:shadow-sky-500/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                           Apply Now
                           <ArrowRight size={16} />
                         </button>
@@ -526,19 +530,19 @@ export default function Careers() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200/50 dark:border-slate-700/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                  className="bg-gradient-to-br from-slate-50/90 to-sky-50/80 dark:from-slate-800/90 dark:to-slate-900/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-slate-200/30 dark:border-slate-700/30 hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 p-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 p-3 shadow-lg">
                           <job.icon className="w-full h-full text-white" />
                         </div>
                         <div>
-                          <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
                             {job.title}
                           </h3>
-                          <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">{job.department}</p>
+                          <p className="text-sm text-sky-600 dark:text-sky-400 font-medium">{job.department}</p>
                         </div>
                       </div>
                       
@@ -563,7 +567,7 @@ export default function Careers() {
                     </div>
                     
                     <div className="lg:w-48">
-                      <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                      <button className="w-full px-6 py-3 bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-sky-500/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                         Apply Now
                         <ArrowRight size={16} />
                       </button>
@@ -577,9 +581,9 @@ export default function Careers() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-sky-500 via-cyan-500 to-blue-500 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-white to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-white to-transparent rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-white to-transparent rounded-full blur-3xl"></div>
         </div>
         
@@ -600,7 +604,7 @@ export default function Careers() {
             </h2>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mt-12">
-              <button className="px-10 py-5 bg-white text-purple-600 font-bold text-lg rounded-2xl hover:bg-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+              <button className="px-10 py-5 bg-white text-sky-600 font-bold text-lg rounded-2xl hover:bg-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
                 <Briefcase size={24} />
                 View All Careers
               </button>

@@ -36,13 +36,15 @@ export const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           : 'bg-slate-900/90 backdrop-blur-md ring-white/10'
           }`}>
           <div className="flex gap-2 items-center">
-            <img src="/logo.png" alt="Logo" className="w-[120px] h-auto object-contain py-1" />
+            <Link to="/">
+              <img src="/logo.png" alt="Logo" className="w-[120px] h-auto object-contain py-1" />
+            </Link>
           </div>
           <nav className={`hidden md:flex items-center gap-8 text-sm transition-colors duration-300 ${theme === 'light' ? 'text-slate-600' : 'text-slate-300'}`}>
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className={`transition font-sans ${theme === 'light' ? 'hover:text-black' : 'hover:text-white'}`} title="Link disabled in preview mode">
+              <Link key={link.name} to={link.href} className={`transition font-sans ${theme === 'light' ? 'hover:text-black' : 'hover:text-white'}`}>
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="hidden md:flex items-center gap-3">

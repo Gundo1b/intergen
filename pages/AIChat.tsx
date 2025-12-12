@@ -1,160 +1,92 @@
-import React, { useState } from 'react';
-import { Send, Bot, User } from 'lucide-react';
 import { Theme } from '../types';
+import { Layers, Zap, Shield, Cpu, CheckCircle2 } from 'lucide-react';
+import React from 'react';
 
 interface AIChatProps {
   theme: Theme;
 }
 
-interface Message {
-  id: string;
-  text: string;
-  isUser: boolean;
-  provider?: string;
-}
-
-const AI_PROVIDERS = [
-  { name: 'ChatGPT', id: 'chatgpt', color: 'text-green-500' },
-  { name: 'Claude AI', id: 'claude AI', color: 'text-orange-500' },
-  { name: 'Gemini', id: 'gemini', color: 'text-blue-500' },
-  { name: 'Llama', id: 'llama', color: 'text-purple-500' },
-  { name: 'DeepSeek', id: 'deepseek', color: 'text-red-500' },
-  { name: 'Qwen', id: 'qwen', color: 'text-cyan-500' },
-];
-
 export const AIChat: React.FC<AIChatProps> = ({ theme }) => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: 'Hello! I\'m your AI assistant. Choose a provider above to start chatting!',
-      isUser: false,
-      provider: 'system'
-    }
-  ]);
-  const [inputText, setInputText] = useState('');
-  const [selectedProvider, setSelectedProvider] = useState('chatgpt');
-
-  const handleSendMessage = () => {
-    if (!inputText.trim()) return;
-
-    // Add user message
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      text: inputText,
-      isUser: true,
-    };
-
-    // Add AI response (simulated)
-    const aiMessage: Message = {
-      id: (Date.now() + 1).toString(),
-      text: `This is a simulated response from ${AI_PROVIDERS.find(p => p.id === selectedProvider)?.name}. In a real implementation, this would connect to the ${selectedProvider} API.`,
-      isUser: false,
-      provider: selectedProvider,
-    };
-
-    setMessages([...messages, userMessage, aiMessage]);
-    setInputText('');
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-bg-dark dark:to-slate-900 pt-20">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold font-display bg-gradient-to-r from-brand-start to-brand-end text-transparent bg-clip-text mb-4">
-            AI Chat
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold font-display bg-gradient-to-r from-brand-start to-brand-end text-transparent bg-clip-text mb-6">
+            Why InterGen AI Chat?
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-400">
-            Choose your AI provider and start chatting
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Experience the future of communication with a unified platform designed to bring the world's most powerful AI models directly to your fingertips.
           </p>
         </div>
 
-        {/* Provider Selection */}
-        <div className="mb-8">
-          <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-3 uppercase tracking-wide">
-            Choose AI Provider
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {AI_PROVIDERS.map((provider) => (
-              <button
-                key={provider.id}
-                onClick={() => setSelectedProvider(provider.id)}
-                className={`p-3 rounded-lg border transition-all duration-200 ${
-                  selectedProvider === provider.id
-                    ? 'border-brand-end bg-brand-end/10 text-brand-end'
-                    : 'border-slate-200 dark:border-slate-700 hover:border-brand-start dark:hover:border-brand-start'
-                }`}
-              >
-                <div className={`text-sm font-medium ${provider.color}`}>
-                  {provider.name}
-                </div>
-              </button>
-            ))}
+        {/* Main Features Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {/* Feature 1 */}
+          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
+            <div className="h-14 w-14 bg-brand-start/10 rounded-xl flex items-center justify-center mb-6 text-brand-start">
+              <Layers size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Unified Model Access</h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Why settle for one when you can have them all? InterGen provides seamless access to industry-leading models including ChatGPT, Claude, Gemini, Llama, DeepSeek, and Qwen. Switch between models instantly to leverage their unique strengths for different tasks without juggling multiple subscriptions.
+            </p>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
+            <div className="h-14 w-14 bg-brand-end/10 rounded-xl flex items-center justify-center mb-6 text-brand-end">
+              <Zap size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Optimized Workflow</h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Streamline your productivity by integrating AI directly into your creative and development environment. Whether you're coding, writing, or brainstorming, InterGen's AI Chat is context-aware and ready to assist, eliminating the friction of context switching between external tools.
+            </p>
+          </div>
+
+          {/* Feature 3 */}
+          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
+            <div className="h-14 w-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-500">
+              <Shield size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Privacy & Security First</h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              Your intellectual property deserves the highest protection. InterGen employs enterprise-grade encryption and strict data privacy protocols. We ensure your conversations and data remain yours, giving you the confidence to use AI for sensitive and proprietary projects.
+            </p>
+          </div>
+
+          {/* Feature 4 */}
+          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
+            <div className="h-14 w-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-500">
+              <Cpu size={32} />
+            </div>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Future-Proof Technology</h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+              The AI landscape changes daily. InterGen stays ahead of the curve by continuously integrating the latest model versions and breakthroughs. You'll always have access to the most cutting-edge capabilities without needing to upgrade your infrastructure or learn new tools.
+            </p>
           </div>
         </div>
 
-        {/* Chat Interface */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
-          {/* Messages */}
-          <div className="h-96 overflow-y-auto p-6 space-y-4">
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                    message.isUser
-                      ? 'bg-brand-end text-white'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-slate-100'
-                  }`}
-                >
-                  {!message.isUser && (
-                    <div className="flex items-center gap-2 mb-1">
-                      <Bot size={16} />
-                      <span className="text-xs font-medium opacity-75">
-                        {message.provider === 'system' ? 'System' : AI_PROVIDERS.find(p => p.id === message.provider)?.name}
-                      </span>
-                    </div>
-                  )}
-                  <p className="text-sm">{message.text}</p>
-                </div>
+        {/* Benefits List */}
+        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 md:p-12">
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-white mb-10">
+            The InterGen Advantage
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              'Cost-Effective Aggregation',
+              'Context-Aware Assistance',
+              'Seamless Integration',
+              'Multi-Modal Capabilities',
+              'Low Latency Response',
+              '24/7 Availability'
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-center space-x-3">
+                <CheckCircle2 className="text-green-500 flex-shrink-0" size={24} />
+                <span className="text-lg text-slate-700 dark:text-slate-300 font-medium">{benefit}</span>
               </div>
             ))}
           </div>
-
-          {/* Input */}
-          <div className="border-t border-slate-200 dark:border-slate-700 p-4">
-            <div className="flex gap-2">
-              <textarea
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder={`Chat with ${AI_PROVIDERS.find(p => p.id === selectedProvider)?.name}...`}
-                className="flex-1 resize-none border border-slate-300 dark:border-slate-600 rounded-lg px-3 py-2 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-end"
-                rows={1}
-              />
-              <button
-                onClick={handleSendMessage}
-                disabled={!inputText.trim()}
-                className="px-4 py-2 bg-brand-end text-white rounded-lg hover:bg-brand-end/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                <Send size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Info */}
-        <div className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
-          <p>Currently showing simulated responses. In a real implementation, this would connect to actual AI APIs.</p>
         </div>
       </div>
     </div>

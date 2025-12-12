@@ -6,7 +6,7 @@ import { ParticleBackground } from './ParticleBackground';
 import { EncryptedText } from './ui/encrypted-text';
 import { TextGenerateEffect } from './ui/text-generate-effect';
 
-const models = ['ChatGPT', 'Claude', 'Gemini', 'Llama', 'DeepSeek', 'Qwen'];
+const models = ['ChatGPT', 'ClaudeAI', 'Gemini', 'Llama', 'DeepSeek', 'Qwen'];
 
 export const Hero: React.FC = () => {
   const [activeModel, setActiveModel] = useState('Anthropic');

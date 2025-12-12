@@ -229,7 +229,7 @@ function LargeNameFooter() {
                   <Link to="/about" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">About</Link>
                 </li>
                 <li>
-                  <Link to="/comparison" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Comparison</Link>
+
                 </li>
                 <li>
                   <Link to="/blog" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Blog</Link>
@@ -247,12 +247,12 @@ function LargeNameFooter() {
               <ul className="space-y-2 text-sm md:text-base">
                 <li>
                   <a href="#" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Privacy
+                    <Link to="/privacy" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Privacy</Link>
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">
-                    Terms
+                    <Link to="/terms" className="text-slate-600 hover:text-brand-end dark:text-gray-400 dark:hover:text-white transition-colors">Terms</Link>
                   </a>
                 </li>
               </ul>

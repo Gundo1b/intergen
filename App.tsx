@@ -26,6 +26,8 @@ import { AIVideo as AIVideoPage } from './pages/AIVideo';
 import { AICoding as AICodingPage } from './pages/AICoding';
 import { ImageIcon } from 'lucide-react';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 function App() {
   const [theme, setTheme] = useState<Theme>('light');
@@ -80,6 +82,8 @@ function App() {
         <Route path="/ai-video" element={<AIVideoPage />} />
         <Route path="/ai-coding" element={<AICodingPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
       <Footer />
     </BrowserRouter>

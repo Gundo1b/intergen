@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   CheckCircle,
   MinusCircle,
@@ -15,8 +16,6 @@ import {
   GraduationCap
 } from 'lucide-react';
 import { Icons } from './ui/icons';
-
-import { ContactForm } from './ContactForm';
 
 interface PricingCardProps {
   title: string;
@@ -116,7 +115,7 @@ function PricingCard({ title, desc, price, options, featured = false, showArrow 
 }
 
 export function PricingSection11() {
-  const [showContactForm, setShowContactForm] = useState(false);
+  const navigate = useNavigate();
 
   const cards = [
     {
@@ -228,7 +227,6 @@ export function PricingSection11() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-r from-sky-400/10 via-cyan-300/10 to-violet-400/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
       </div>
 
-      {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -297,7 +295,7 @@ export function PricingSection11() {
                 <ArrowRight size={20} />
               </button>
               <button
-                onClick={() => setShowContactForm(true)}
+                onClick={() => navigate('/contact')}
                 className="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white/10 transition-colors duration-200"
               >
                 Contact Sales

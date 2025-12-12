@@ -15,7 +15,7 @@ interface Message {
 
 const AI_PROVIDERS = [
   { name: 'ChatGPT', id: 'chatgpt', color: 'text-green-500' },
-  { name: 'Claude', id: 'claude', color: 'text-orange-500' },
+  { name: 'Claude AI', id: 'claude AI', color: 'text-orange-500' },
   { name: 'Gemini', id: 'gemini', color: 'text-blue-500' },
   { name: 'Llama', id: 'llama', color: 'text-purple-500' },
   { name: 'DeepSeek', id: 'deepseek', color: 'text-red-500' },
